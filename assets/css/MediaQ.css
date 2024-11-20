@@ -1,0 +1,51 @@
+/* Desktop */
+@media screen and (min-width: 769px) {
+    .hide-desktop {
+        display: none;
+        overflow: hidden;
+    } 
+
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    /*Root*/
+    .hide-mobile {
+        display: none;
+        overflow: hidden;
+    }
+    .container{
+        padding: 5rem;
+        height: auto;
+    }
+
+    /*header*/
+
+    header{
+        padding: 1.5rem 2rem;
+    }
+
+    ion-icon{
+        color: var(--primary-color);
+        font-size: 3rem;
+    }
+
+    /*Hero*/
+
+    .hero-section{
+        align-items: flex-start;
+        padding: 15rem 5rem 0;
+        height: 100vh;
+        position: relative;
+    }
+
+    .hero-text h1{
+        font-size: 4rem;
+    }
+    .hero-text{
+        width: 100%;
+    }
+    .quem-somos section{
+        width: 100%;
+    }
+}
