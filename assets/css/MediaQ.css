@@ -84,4 +84,21 @@
         gap: 5rem;
         padding: 7rem 0;
     }
+
+    .benefits-area{
+        flex-direction: column;
+    }
+
+    footer{
+        background: var(--gray-color);
+        padding: 5rem 2.5rem;
+        color: var(--text-gray);
+    }
+
+    .footer-link-info-area section{
+        width: 100%;
+    }
+    .footer-link-info-area{
+        flex-direction: column;
+    }
 }

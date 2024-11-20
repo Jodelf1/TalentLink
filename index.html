@@ -13,10 +13,11 @@
 
     <!-- Style -->
 
-    <link rel="stylesheet" href="assets/css/object.css">
     <link rel="stylesheet" href="assets/css/root.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/MediaQ.css">
+    <link rel="stylesheet" href="assets/css/object.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
     <!-- Menu -->
@@ -61,8 +62,11 @@
                 <h1 class="title">Quem somos?</h1>
                 <p class="body-text">
                     Talent Match é uma plataforma completa de recrutamento e desenvolvimento profissional que conecta empresas,
-                    candidatos e formadores de forma inovadora. Utilizando inteligência artificial, oferece match inteligente entre perfis,
+                    candidatos e formadores de forma inovadora. 
+                    <br>
+                    Utilizando inteligência artificial, oferece match inteligente entre perfis,
                     gamificação do processo seletivo com feedback dinâmico e oportunidades de crescimento contínuo para candidatos.
+                    <br>
                     Empresas encontram talentos alinhados às suas necessidades, enquanto candidatos têm acesso a ferramentas e cursos personalizados que aprimoram suas competências.
                     O Talent Match simplifica a seleção, promove o desenvolvimento e facilita contratações de qualidade em um único ambiente digital.
                 </p>
@@ -75,13 +79,13 @@
         <section class="container">
             <h1 class="title t-center">Tenha uma experiência de 
                 navegação exclusiva!</h1>
-            <section class="exp-card-area flex row f-center j-around">
+            <section class="exp-card-area flex row f-center j-around t-center">
                 <div class="exp-card">
-                    <img src="assets/img/ia-icon.png" alt="">
+                    <img src="assets/img/ai.png" alt="">
                     <p><strong>Integração com IA:</strong> No Talent Match permitimos combinar as habilidades dos candidatos automaticamente com as necessidades das empresas, garantindo um "Match" preciso.</p>
                 </div>
                 <div class="exp-card">
-                    <img src="assets/img/gaming-icon.png" alt="">
+                    <img src="assets/img/game.png" alt="">
                     <p><strong>Gamificação:</strong>  A gamificação no Talent Match transforma o processo seletivo em uma experiência interativa, com testes práticos e desafios que simulam tarefas reais.</p>
                 </div>
             </section>
@@ -90,13 +94,16 @@
         <!-- Benefícios -->
         <section class="container blue-zone">
             <h1 class="title">Obtenha vários Benefícios:</h1>
-            <section class="flex j-between">
+            <section class="benefits-area flex col">
                 <div>
                     <h2>Empresas</h2>
                     <p><strong>Redução de tempo e custo no recrutamento:</strong> Com processos mais eficientes e tecnologia, é possível diminuir o tempo gasto na contratação de novos funcionários e reduzir os custos associados</p>
+                    <p><strong>Relatórios de desempenho e formação de funcionários:</strong> Relatórios ajudam a acompanhar o desempenho dos colaboradores e a direcionar treinamentos para melhorar suas habilidades.</p>
                 </div>
                 <div>
                     <h2>Candidatos</h2>
+                    <p><strong>Experiência de recrutamento personalizada e feedback construtivo:</strong> Oferecer uma abordagem mais personalizada no recrutamento, com comunicação clara e feedback em cada etapa, melhora a experiência dos candidatos e ajuda no seu desenvolvimento profissional.</p>
+                    <p><strong>Acesso a cursos e oportunidade de networking: </strong>Proporcionar acesso a formações específicas e promover conexões entre profissionais fortalece o aprendizado e amplia as possibilidades de crescimento na carreira.</p>
                 </div>
                 <div>
                     <h2>Formadores</h2>
@@ -108,19 +115,104 @@
         </section>
         <section class="container">
             <h1 class="title">Depoimentos</h1>
+            <section class="swiper flex">
+                <section class="slider-area slider-wrapper">
+                    <section class="card-area swiper-wrapper t-center">
+                        <div class="depoiment-card swiper-slide" target="_blank">
+                            <img src="assets/img/maradalva.jpeg" alt="">
+                            <h2 class="name-dep">Soarito's Dad</h2>
+                            <p class="dep-message">"Whatever you do in your life, put your family first"</p>
+                        </div>
+                        <div class="depoiment-card swiper-slide" target="_blank">
+                            <img src="assets/img/jessicaalba.jpeg" alt="">
+                            <h2 class="name-de">Jéssica Alba</h2>
+                            <p class="dep-message">“Desde que eu comecei a usar a Talent Match
+                                melhorei muito as minhas habilidades profissionais,
+                                consegui um emprego numa empresa de prestígio.”</p>
+                        </div>
+                        <div class="depoiment-card swiper-slide"  target="_blank">
+                            <img src="assets/img/telmajoão.jpeg" alt="">
+                            <h2 class="name-dep">Telma João</h2>
+                            <p class="dep-message">“Desde que eu comecei a usar a Talent Match
+                                melhorei muito as minhas habilidades profissionais,
+                                consegui um emprego numa empresa de prestígio.”</p>
+                        </div>
+                        <div class="depoiment-card swiper-slide"  target="_blank">
+                            <img src="assets/img/maradalva.jpeg" alt="" >
+                            <h2 class="name-dep">Mara Dalva</h2>
+                            <p class="dep-message">“Desde que eu comecei a usar a Talent Match
+                                melhorei muito as minhas habilidades profissionais,
+                                consegui um emprego numa empresa de prestígio.”</p>
+                        </div>
+                    </section>
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-slide-button swiper-button-prev"></div>
+                    <div class="swiper-slide-button swiper-button-next"></div>
+                </section>
+            </section>
         </section>
     </main>
-    <footer class="flex row j-between">
-        <section class="">
-            <img src="assets/img/logo.png" alt="" class="logo-footer">
-            <p></p>
+    <footer class=" flex col">
+        <section class="flex row j-between footer-link-info-area">
+            <section class="">
+                <img src="assets/img/logo2.png" alt="" class="logo-footer">
+                <p>Encontre Oportunidades para 
+                    estreiar no mercado de trabalho. 
+                    Aproveite várias oportunidades 
+                    que temos para começar a sua 
+                    carreira profissional.</p>
+            </section>
+    
+            <section>
+                <h1>Para empresas</h1>
+                <ul class="flex col">
+                    <li><a href="">Encontrar Talentos</a></li>
+                    <li><a href="">Publicar Vagas</a></li>
+                    <li><a href="">Webinars</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>Para Candidatos</h1>
+                <ul>
+                    <li><a href="">Encontrar Vagas</a></li>
+                    <li><a href="">Programas de desenvolvimento</a></li>
+                    <li><a href="">Cadastrar perfil</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>Para Formadores</h1>
+                <ul>
+                    <li><a href="">Lance um novo curso</a></li>
+                    <li><a href="">Colaboração com Empresas</a></li>
+                    <li><a href="">Formações</a></li>
+                    <li><a href="">Webinars</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>Legal</h1>
+                <ul>
+                    <li><a href="">Política de Privacidade</a></li>
+                    <li><a href="">Termos de Uso</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>Contacte-nos</h1>
+                <ul>
+                    <li><a href="">+244 900 000 000</a></li>
+                    <li><a href="">suporte@talentmatch.com</a></li>
+                    <li><a href="">ISPTEC, Via S8, 
+                        Município do Talatona, 
+                        Luanda-Angola</a></li>
+                </ul>
+            </section>
         </section>
-        <section></section>
-        <section></section>
-        <section></section>
+       <section class="creditos t-center"><p>Copyright © 2024. Todos os Direitos Reservados a <strong>Talent Match</strong> | developed by <a href="" class="marimbaz">Marimba'Z</a></p></section>
     </footer>
     <!-- Scripts -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/slider.js"></script>
 </body>
 </html>

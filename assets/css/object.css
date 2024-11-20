@@ -60,6 +60,22 @@
     width: 10rem;
 }
 
+.depoiment-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+.depoiment-card img{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: top;
+    width: 40%;
+    border-radius: 50%;
+}
+
 @media screen and (max-width: 768px) {
     .title{
         font-size: 2.7rem;
@@ -77,4 +93,9 @@
         padding-right: 2rem;
         border-right: solid var(--primary-color) 0.3rem;
     }
+}
+
+.marimbaz{
+    color: var(--primary-color);
+    font-weight: 600;
 }

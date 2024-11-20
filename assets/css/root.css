@@ -8,10 +8,11 @@
     --dark-color: #121212;
     --white-color: #FFFFFF;
     --light-color: #ececec2f;
-    --gray-color: #929292;
+    --gray-color: #2E2F2F;
 
     --text-white: #FFFFFF;
     --text-black: #000000;
+    --text-gray: #C0BFBF;
 
     /* Size */
     --big-sz: 3.4rem;
