@@ -32,7 +32,9 @@
     .home-header .button-area{
         gap: 1rem;
     }
-    .logo-container{width: 30%;}
+    .logo-container{
+        width: 30%;
+    }
     .logo-container img{
         width: 100%;
     }
@@ -42,8 +44,9 @@
     .hero-section{
         align-items: flex-start;
         padding: 15rem 2.5rem 0;
-        height: 100vh;
+        height: auto;
         position: relative;
+        flex-direction: column;
     }
 
     .hero-text h1{
@@ -51,14 +54,34 @@
     }
     .hero-text p{
         font-size: 1.5rem;
+        line-height: 2.5rem;
     }
     .hero-text{
         width: 100%;
+    }
+    .hero-image{
+        position: initial;
+        width: 100%;
+    }
+
+
+
+    .quem-somos{
+        padding: 2.5rem;
+        line-height: 2.5rem;
     }
     .quem-somos section{
         width: 100%;
     }
     .body-text{
         font-size: 1.5rem;
+    }
+
+    .exp-card-area{
+        flex-direction: column;
+        justify-content: initial;
+        align-items: flex-start;
+        gap: 5rem;
+        padding: 7rem 0;
     }
 }
