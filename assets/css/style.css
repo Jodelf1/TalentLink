@@ -21,14 +21,11 @@ header{
     padding: 2.5rem 6rem;
 }
 
-.home-header{
-    
-}
 .menu{
     gap: 2rem;
 }
 .menu a{
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 500;
     color: var(--dark-color);
 }
@@ -66,7 +63,7 @@ text{
     width: 50%;
 }
 .hero-image{
-    width: 73rem; 
+    width: 60rem; 
     position: absolute;
     bottom: 0;
     right: 6rem;
@@ -81,6 +78,7 @@ text{
 
 .quem-somos{
     height: auto;
+    padding: 5rem 10rem;
 }
 
 .quem-somos section{

@@ -15,7 +15,7 @@
         overflow: hidden;
     }
     .container{
-        padding: 5rem;
+        padding: 2.5rem;
         height: auto;
     }
 
@@ -29,23 +29,36 @@
         color: var(--primary-color);
         font-size: 3rem;
     }
+    .home-header .button-area{
+        gap: 1rem;
+    }
+    .logo-container{width: 30%;}
+    .logo-container img{
+        width: 100%;
+    }
 
     /*Hero*/
 
     .hero-section{
         align-items: flex-start;
-        padding: 15rem 5rem 0;
+        padding: 15rem 2.5rem 0;
         height: 100vh;
         position: relative;
     }
 
     .hero-text h1{
-        font-size: 4rem;
+        font-size: 3.5rem;
+    }
+    .hero-text p{
+        font-size: 1.5rem;
     }
     .hero-text{
         width: 100%;
     }
     .quem-somos section{
         width: 100%;
+    }
+    .body-text{
+        font-size: 1.5rem;
     }
 }
