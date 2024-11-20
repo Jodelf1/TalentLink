@@ -74,7 +74,7 @@
         width: 100%;
     }
     .body-text{
-        font-size: 1.5rem;
+       font-size: 1.5rem;
     }
 
     .exp-card-area{
@@ -93,8 +93,11 @@
         background: var(--gray-color);
         padding: 5rem 2.5rem;
         color: var(--text-gray);
+        
     }
-
+    .footer-link-info-area{
+        gap: 2rem;
+    }
     .footer-link-info-area section{
         width: 100%;
     }

@@ -34,10 +34,6 @@
     font-size: 3.5rem;
 }
 
-.body-text{
-    font-size: 2rem;
-}
-
 .buttonInverse{
     color: var(--primary-color);
     background-color: var(--white-color);
