@@ -85,8 +85,40 @@
         padding: 7rem 0;
     }
 
+    .benefits-section{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0;
+    }
+    .benefits-section img{
+        position: initial;
+        width: 60%;
+        align-self: flex-end;
+    }
+
     .benefits-area{
         flex-direction: column;
+        width: 100%;
+    }
+
+    .step-card-area{
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 0 5rem;
+    }
+    .step-card{
+        width: 100%;
+        gap: 1rem;
+    }
+    .step-card img{
+        width: 5rem;
+    }
+    .step-card h1{
+        color: var(--primary-color);
+        font-size: 2rem;
+    }
+    .step-text{
+        text-align: left;
     }
 
     footer{
