@@ -1,0 +1,17 @@
+{
+    "name": "dell/talent-link",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jodelfi",
+            "email": "jodelfimarimba56@gmail.com"
+        }
+    ],
+    "require": {
+        "league/plates": "^3.6"
+    }
+}
