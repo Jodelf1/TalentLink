@@ -2,6 +2,12 @@
 require '../vendor/autoload.php';
 require '../routes/router.php';
 
+use Dotenv\Dotenv;
+
+$path = dirname(__FILE__, 2);
+$dotenv = Dotenv::createImmutable($path);
+$dotenv->load();
+
 try{
     // Obtendo a URI e o metodo da requisição
     $uri = parse_url($_SERVER['REQUEST_URI'])["path"];

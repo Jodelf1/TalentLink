@@ -3,11 +3,12 @@ Angola Pro Talent é uma plataforma completa de recrutamento e desenvolvimento p
 
 ## Como rodar o projecto: 
 
-    * Instalar o Composer <https://getcomposer.org/download/>
+* Instalar o Composer <https://getcomposer.org/download/>
 
-    * Instalar dependências:
-        - composer install
+* Instalar dependências:
+    - composer install
     
-    * instalar as seguintes dependências: 
-        - composer require league/plates
-
+* instalar as seguintes dependências: 
+    - composer require league/plates
+    - composer require vlucas/phpdotenv
+    - composer require phpauth/phpauth
