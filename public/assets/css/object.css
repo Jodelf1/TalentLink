@@ -73,6 +73,72 @@
     border-radius: 50%;
 }
 
+.user-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 0.9rem;
+    width: 100%;
+    color: var(--white-color);
+}
+.candidato-card{
+    background-color: var(--bege-color);
+}
+.user-card img{
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user-card h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.user-card p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.sidebar-link{
+    padding: 1.5rem 3rem;
+    background-color: var(--background-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: 0.3s;
+    border-radius: 0.9rem;
+    width: 100%;
+    color: var(--secondary-color);
+}
+
+.sidebar-link.ativo{
+    width: 95%;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.sidebar-link:hover{
+    background-color: var(--hover-button-color);
+    color: var(--white-color);
+    width: 97%;
+    transition: 0.3s;
+}
+
+.log-out-button{
+    padding: 1.5rem 3rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: 0.3s;
+    border-radius: 0.9rem;
+    width: 100%;
+    color: var(--secondary-color);
+    border: solid 0.1rem var(--secondary-color);
+}
+
+
+
 @media screen and (max-width: 768px) {
     .title{
         font-size: 2.7rem;

@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-style: normal;
-    font-family: "Poppins", sans-serif;
+    font-family: "Sen", serif;
     text-decoration: none;
     list-style: none;
 }
@@ -13,28 +13,85 @@ html{
     height: 100%;
 }
 
-header{
-    position: fixed;
-    z-index: 100;
-    width: 100%;
-    background-color: var(--white-color);
-    padding: 2.5rem 6rem;
+body{
+    background: var(--background-color);
 }
 
-.menu{
-    gap: 2rem;
+header{
+    position: fixed;
+    right: 0;
+    z-index: 100;
+    width: 85%;
+    background-color: var(--white-color);
 }
-.menu a{
-    font-size: 1.3rem;
+
+.sidebar{
+    position: fixed;
+    z-index: 100;
+    width: 15%;
+    height: 100%;
+    display: flex;
+    padding: 3rem 2rem;
+    background-color: var(--white-color);
+}
+
+.sidebar-menu ul{
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.search-form-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3rem;
+    gap: 3rem;
+}
+
+.search-form-container form{
+    width: 70%;
+}
+
+.search-form input{
+    width: 100%;
+    padding: 1.5rem 3rem;
+    border: none;
+    color: var(--secundary-color);
     font-weight: 500;
-    color: var(--dark-color);
+    background-color: var(--background-color);
+    border-radius: 1.8rem 0 0 1.8rem;
+    font-size: 1.5rem;
+    outline: none;
 }
-.menu .ative{
-    font-weight: 600;
+
+.search-form input::placeholder{
+    color: var(--secundary-color);
+    font-weight: 500;
+}
+
+.search-form button{
+    padding: 1.5rem 2rem;
+    border: none;
+    color: var(--white-color);
+    font-weight: 500;
+    background-color: var(--primary-color);
+    border-radius: 0 1.8rem 1.8rem 0;
+    font-size: 1.5rem;
+    outline: none;
+}
+
+.notification{
     color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
 }
-.home-header .button-area{
-    gap: 2rem;
+.notification-count{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
 }
 
 /* HERO-SECTION */
@@ -202,3 +259,5 @@ footer h1{
     color: var(--text-gray);
     font-size: 1.5rem;
 }
+
+/*Pagina inicial - candidatos*/

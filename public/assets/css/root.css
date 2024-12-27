@@ -2,7 +2,13 @@
     /* COLOURS */
     --vh: 100%;
     
-    --primary-color: #0093AC;
+    --primary-color: #01B4AE;
+    --hover-button-color: #a1d0d8;
+    --secondary-color: #072F36;
+    --background-color: #EDFAF9;
+    --bege-color: #D4AE74;
+
+
     --sec-color: #005d6d;
     --black-color: #000000;
     --dark-color: #121212;
