@@ -8,17 +8,17 @@ class vagaController
         controller::view('vaga');
     }
 
-    public function createVaga($data)
+    public function create($data)
     {
         //Função para criar uma nova vaga
     }
 
-    public function editVaga($vaga_id, $data)
+    public function edit($vaga_id, $data)
     {
         //Função para editar uma vaga
     }
 
-    public function deleteVaga($vaga_id)
+    public function delete($vaga_id)
     {
         //Função para deletar uma vaga
     }
@@ -58,7 +58,7 @@ class vagaController
         //Função para listar todas as candidaturas para uma vaga
     }
 
-    public function listVagaApplicationsByCandidate($candidato_id)
+    public function listVagaApplicationsByCandidate()
     {
         //Função para listar todas as candidaturas de um candidato
     }
@@ -66,6 +66,11 @@ class vagaController
     public function viewVagaDetails($vaga_id)
     {
         //Função para visualizar detalhes de uma vaga
+    }
+
+    public function viewApplicationDetails($vaga_id, $candidato_id)
+    {
+        //Função para visualizar detalhes de uma candidatura
     }
 
     public function searchVaga($data)

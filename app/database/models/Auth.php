@@ -22,14 +22,15 @@ class Auth
         $this->auth = new PHPAuth($pdo, $config);
     }
 
-    public function register($email, $password, $password_confirm)
+    public function register($email, $password, $password_confirm, $data = [])
     {
         try {
-            return $this->auth->register($email, $password, $password_confirm);
+            return $this->auth->register($email, $password, $password_confirm, $data);
         } catch (PDOException $e) {
             echo 'Registration failed: ' . $e->getMessage();
         }
     }
+
     public function login($email, $password)
     {
         try {

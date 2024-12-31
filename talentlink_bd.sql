@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Dez-2024 às 17:15
+-- Tempo de geração: 31-Dez-2024 às 18:15
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -46,6 +46,25 @@ CREATE TABLE `categorias_vagas` (
   `nome` varchar(255) NOT NULL,
   `descricao` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cv`
+--
+
+CREATE TABLE `cv` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `candidato_id` int(11) UNSIGNED NOT NULL,
+  `biografria` text NOT NULL,
+  `data_nasc` date NOT NULL,
+  `telefone` int(13) NOT NULL,
+  `profissao` varchar(255) NOT NULL,
+  `formacao` text NOT NULL,
+  `habilidades` text NOT NULL,
+  `experiencias` text DEFAULT NULL,
+  `endereco` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -109,6 +128,18 @@ CREATE TABLE `perfis_formadores` (
   `localizacao` varchar(255) DEFAULT NULL,
   `contato` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `phpauth_attempts`
+--
+
+CREATE TABLE `phpauth_attempts` (
+  `id` int(11) NOT NULL,
+  `ip` char(39) NOT NULL,
+  `expiredate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -178,6 +209,48 @@ INSERT INTO `phpauth_config` (`id`, `setting`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `phpauth_emails_banned`
+--
+
+CREATE TABLE `phpauth_emails_banned` (
+  `id` int(11) NOT NULL,
+  `domain` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `phpauth_requests`
+--
+
+CREATE TABLE `phpauth_requests` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `token` char(20) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `expire` datetime NOT NULL,
+  `type` enum('activation','reset') CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `phpauth_sessions`
+--
+
+CREATE TABLE `phpauth_sessions` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `hash` char(40) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `expiredate` datetime NOT NULL,
+  `ip` varchar(39) NOT NULL,
+  `device_id` varchar(36) DEFAULT NULL,
+  `agent` varchar(200) NOT NULL,
+  `cookie_crc` char(40) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `phpauth_users`
 --
 
@@ -189,6 +262,14 @@ CREATE TABLE `phpauth_users` (
   `dt` datetime NOT NULL DEFAULT current_timestamp(),
   `user_type` enum('candidato','empresa','formador','admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `phpauth_users`
+--
+
+INSERT INTO `phpauth_users` (`id`, `email`, `password`, `isactive`, `dt`, `user_type`) VALUES
+(3, 'itzjoestar@proton.me', '$2y$10$9lGPRDVUywVqukIvgWF0f.kZxmu4Df6Bl3ZgNYkO/XyPYPVsYRds.', 0, '2024-12-31 17:25:01', 'candidato'),
+(4, 'jodelfimarimba@gmail.com', '$2y$10$V7qy2G2h/8FnDC2GrxOvTOBrutvx0.AUX4L1IxPthWX6FvibVrLtW', 0, '2024-12-31 17:27:32', 'empresa');
 
 -- --------------------------------------------------------
 
@@ -246,6 +327,13 @@ ALTER TABLE `candidaturas`
 --
 ALTER TABLE `categorias_vagas`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `cv`
+--
+ALTER TABLE `cv`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `candidato_id` (`candidato_id`);
 
 --
 -- Índices para tabela `imagens`
@@ -322,6 +410,12 @@ ALTER TABLE `categorias_vagas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `cv`
+--
+ALTER TABLE `cv`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `imagens`
 --
 ALTER TABLE `imagens`
@@ -355,7 +449,7 @@ ALTER TABLE `phpauth_config`
 -- AUTO_INCREMENT de tabela `phpauth_users`
 --
 ALTER TABLE `phpauth_users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `vagas`
@@ -379,6 +473,12 @@ ALTER TABLE `webinars_formacoes`
 ALTER TABLE `candidaturas`
   ADD CONSTRAINT `candidaturas_ibfk_1` FOREIGN KEY (`vaga_id`) REFERENCES `vagas` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `candidaturas_ibfk_2` FOREIGN KEY (`candidato_id`) REFERENCES `phpauth_users` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `cv`
+--
+ALTER TABLE `cv`
+  ADD CONSTRAINT `cv_ibfk_1` FOREIGN KEY (`candidato_id`) REFERENCES `phpauth_users` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `imagens`

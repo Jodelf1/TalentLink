@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use app\database\models\Auth;
-use app\database\models\Utilizador;
 
 class authController
 {
@@ -17,6 +16,7 @@ class authController
     public function register()
     {
         //Função para visualizar o formulário de registo do utilizador
+        return Controller::view('auth/register'); // mudar VIEW_REGISTER para a página de registo
     }
 
     public function adminRegister()
@@ -27,6 +27,26 @@ class authController
     public function store()
     {
         //Função para criar um utilizador
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $password_confirm = $_POST['password_confirm'];
+                $data = [
+                    "user_type" => $_POST['user_type'],
+                    "isactive" => 0
+                ];
+    
+                $result = $this->auth->register($email, $password, $password_confirm, $data);
+    
+                if ($result['error']) {
+                    echo $result['message'];  // Exibe a mensagem de erro
+                } else {
+                    $msg = 'Registro bem-sucedido! Verifique seu e-mail para ativar a conta.';
+                    Controller::view('/register', ['msg' => $msg]);
+                    // Controller::view('admin/utilizadores/index', ['msg' => $msg, 'utilizadores' => $users]);
+                }
+            }
+    
     }
 
     public function loginForm()
