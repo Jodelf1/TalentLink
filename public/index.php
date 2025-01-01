@@ -1,8 +1,10 @@
 <?php
 require '../vendor/autoload.php';
 require '../routes/router.php';
+session_start();
 
 use Dotenv\Dotenv;
+use app\controllers\controller;
 
 $path = dirname(__FILE__, 2);
 $dotenv = Dotenv::createImmutable($path);
@@ -25,5 +27,6 @@ try{
     $controller = $router[$request][$uri];
     $controller();
 }catch(Exception $e){
-    echo $e->getMessage();
+    // Exibe a página de erro 404
+    controller::view('errors/404');
 }

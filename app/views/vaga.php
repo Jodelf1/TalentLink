@@ -1,3 +1,3 @@
-<?php $this->layout('master', ['title' => 'Home']) ?>
+<?php $this->layout('layouts/base', ['title' => 'Vagas - TalentLink']) ?>
 
 <h1>Vaga</h1>

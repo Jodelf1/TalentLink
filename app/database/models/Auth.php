@@ -70,4 +70,5 @@ class Auth
             echo 'Password reset failed: ' . $e->getMessage();
         }
     }
+    
 }
