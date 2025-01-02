@@ -10,6 +10,7 @@ $path = dirname(__FILE__, 2);
 $dotenv = Dotenv::createImmutable($path);
 $dotenv->load();
 
+/*
 try{
     // Obtendo a URI e o metodo da requisição
     $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
@@ -30,3 +31,13 @@ try{
     // Exibe a página de erro 404
     controller::view('errors/404');
 }
+    */
+
+    try {
+        $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
+        $request = $_SERVER['REQUEST_METHOD'];
+
+        route($request, $uri, $router);
+    } catch (Exception $e) {
+        controller::view('errors/404');
+    }

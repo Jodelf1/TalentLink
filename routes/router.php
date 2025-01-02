@@ -1,6 +1,25 @@
 <?php 
+function route($metodo, $path, $router){
 
-function load($controller, $action){
+    if(!isset($router[$metodo])){
+        throw new Exception("A rota não exite");
+    }
+
+    foreach($router[$metodo] as $route => $callback){
+        $pattern = preg_replace('/\{(\w+)\}/', '(?P<\1>[^/]+)', $route);
+        $pattern = '@^' . $pattern . '$@';
+
+        if(preg_match($pattern, $path, $matches)){
+            $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+            return $callback($params);
+        }
+    }
+}
+
+
+
+
+function load($controller, $action, $params = []){
 
     try{
         
@@ -19,7 +38,7 @@ function load($controller, $action){
         }
 
         // Executa o método
-        $controllerInstance->$action();
+        $controllerInstance->$action($params);
 
     }catch(Exception $e){
         echo $e->getMessage();
@@ -31,6 +50,7 @@ $router = [
     'GET' => [
         /* Rota Geral */
 
+        
         "/" => fn() => load("homeController", "index"),
         "/sobre" => fn() => load("homeController", "about"),
         "/contato" => fn() => load("homeController", "contact"),
@@ -45,7 +65,7 @@ $router = [
         "/logout" => fn() => load("AuthController", "logout"),
 
         /* Rota das empresas */
-
+        "/empresas/{empresaId}" => fn($params) => load("empresaController", "exibirDetalhes", $params),
         "/empresas" => fn() => load("empresaController", "index"),
         "/empresas/vagas" => fn() => load("vagaController", "listVagas"),
         "/empresas/create/vaga" => fn() => load("vagaController", "create"),
@@ -90,6 +110,8 @@ $router = [
 
 
         /* Rota das empresas */
+        
+        "/empresas/create" => fn() => load("empresaController", "criarPerfil"),
         "/empresas/create/vaga" => fn() => load("vagaController", "create"),
         "/empresas/edit/vaga" => fn() => load("vagaController", "edit"),
         "/empresas/delete/vaga" => fn() => load("vagaController", "delete"),

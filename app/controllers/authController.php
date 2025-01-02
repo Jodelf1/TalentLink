@@ -122,9 +122,13 @@ class authController
                 }
 
                 $msg = 'Login bem-sucedido!';
-                
-                header("location: $destino");
+
+                header('Location: /empresas');
                 exit;
+
+                
+               // header("location: $destino");
+                //exit;
             }
         }
 
@@ -154,4 +158,5 @@ class authController
         }
     }
 
+   
 }
