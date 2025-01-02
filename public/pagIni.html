@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talent-Link - Página inicial</title>
 
     <!-- Icones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap"
+        rel="stylesheet">
 
     <!-- Style -->
 
@@ -20,23 +25,24 @@
     <link rel="stylesheet" href="assets/css/MediaQ.css">
     <link rel="stylesheet" href="assets/css/object.css">
 </head>
+
 <body>
-    <header class="flex row">
+    <header class="flex row a-center j-between">
+        <section class="logo">
+            <img src="assets/img/logo.png" alt="Logo">
+        </section>
         <section class="search-form-container">
             <form action="" class="search-form flex row">
                 <input type="text" name="search" id="search" placeholder="Pesquisar vagas, categorias, formações...">
                 <button type="submit"><i class="fa-solid fa-search"></i></button>
             </form>
-            <section class="notification-container">
-                <a href="#" class="notification"><i class="fa-solid fa-bell"></i></a>
-                <span class="notification-count">1</span>
-            </section>
         </section>
+        <a class="notification-container relative" href="">
+            <i class="fa-solid fa-bell notification"></i>
+            <span class="notification-count absolute">1</span>
+        </a>
     </header>
-    <section class="sidebar flex col j-between">
-        <div class="logo">
-            <img src="assets/img/logo.png" alt="Logo">
-        </div>
+    <section class="sidebar flex col j-around">
         <nav class="sidebar-menu">
             <ul class="flex col">
                 <a href="" class="user-card candidato-card">
@@ -44,7 +50,7 @@
                     <section class="user-info flex col">
                         <h1 class="user-name">Nome do candidato</h1>
                         <p class="user-email">candidato@example.com</p>
-                    </section>  
+                    </section>
                 </a>
                 <a href="" class="sidebar-link ativo"><i class="fa-solid fa-house"></i> Página inicial</a>
                 <a href="" class="sidebar-link"><i class="fa-solid fa-briefcase"></i> Vagas</a>
@@ -55,7 +61,15 @@
         </nav>
         <a href="" class="log-out-button"><i class="fa-solid fa-arrow-right-from-bracket"></i>Terminar Sessão</a>
     </section>
-    <section> </section>
-    
+    <main>
+        <section class="container"> 
+            <h1 class="section-title">VEJA NOVAS VAGAS</h1>
+        </section>
+    </main>
+       
+    <footer>
+        <h1>dna</h1>
+    </footer>
 </body>
+
 </html>

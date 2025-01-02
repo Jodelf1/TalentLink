@@ -17,17 +17,29 @@ body{
     background: var(--background-color);
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 8rem;
+    padding-left: 15%;
+    min-height: 100vh;
+}
+
+/*MENU E SIDEBAR*/
+
 header{
     position: fixed;
-    right: 0;
     z-index: 100;
-    width: 85%;
+    width: 100%;
     background-color: var(--white-color);
+    padding: 0.7rem 3rem;
 }
 
 .sidebar{
     position: fixed;
-    z-index: 100;
+    z-index: 99;
+    bottom: 0;
     width: 15%;
     height: 100%;
     display: flex;
@@ -41,12 +53,9 @@ header{
 }
 
 .search-form-container{
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 3rem;
-    gap: 3rem;
+    width: 50%;
 }
 
 .search-form-container form{
@@ -61,6 +70,7 @@ header{
     font-weight: 500;
     background-color: var(--background-color);
     border-radius: 1.8rem 0 0 1.8rem;
+    border: 0.1rem solid var(--primary-color);
     font-size: 1.5rem;
     outline: none;
 }
@@ -84,14 +94,17 @@ header{
 .notification{
     color: var(--primary-color);
     padding: 0.5rem 1rem;
-    font-size: 1.5rem;
+    font-size: 3rem;
 }
 .notification-count{
-    background-color: var(--primary-color);
+    background-color: red;
     color: var(--white-color);
     padding: 0.5rem 1rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -0.1rem;
 }
 
 /* HERO-SECTION */
@@ -260,4 +273,4 @@ footer h1{
     font-size: 1.5rem;
 }
 
-/*Pagina inicial - candidatos*/
+/**/

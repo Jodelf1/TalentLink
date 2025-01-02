@@ -37,10 +37,13 @@
 }
 
 
-.container {
-    width: 100%;
-    height: 100vh;
-    padding: 10rem;
+.container{
+    padding: 3rem;
+    background: #ffffff;
+    margin: 0 2rem;
+    width: 97%;
+    border-radius: 0.6rem;
+
 }
 
 .content{
@@ -119,4 +122,12 @@ p{
 
 .off{
     display: none;
+}
+
+.relative{
+    position: relative;
+}
+
+.absolute{
+    position: absolute;
 }
