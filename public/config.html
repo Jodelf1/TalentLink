@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="assets/css/object.css">
 </head>
 
-<body class="light-mode">
+<body>
     <header class="flex row a-center j-between">
         <section class="logo">
             <img src="assets/img/logo.png" alt="Logo">
@@ -52,11 +52,11 @@
                         <p class="user-email">candidato@example.com</p>
                     </section>
                 </a>
-                <a href="" class="sidebar-link ativo"><i class="fa-solid fa-house"></i> Página inicial</a>
+                <a href="/public/pagIni.html" class="sidebar-link"><i class="fa-solid fa-house"></i> Página inicial</a>
                 <a href="" class="sidebar-link"><i class="fa-solid fa-briefcase"></i> Vagas</a>
                 <a href="" class="sidebar-link"><i class="fa-solid fa-book-open"></i> Formações</a>
                 <a href="" class="sidebar-link"><i class="fa-solid fa-tags"></i> Categorias</a>
-                <a href="" class="sidebar-link"><i class="fa-solid fa-gear"></i> Configurações</a>
+                <a href="" class="sidebar-link ativo"><i class="fa-solid fa-gear"></i> Configurações</a>
             </ul>
         </nav>
         <a href="" class="log-out-button"><i class="fa-solid fa-arrow-right-from-bracket"></i>Terminar Sessão</a>
@@ -91,8 +91,38 @@
             </li>
 
         </ul>
-        <section class="container"> 
-            <h1 class="section-title">VEJA NOVAS VAGAS</h1>
+        <section class="container configuration-container"> 
+            <h1 class="section-title">Configurações</h1>
+            <section class="config-section">
+                <h1 class="config-title">Notificações</h1>
+                <form action="" class="config-form">
+                    <label for="notification">Notificações</label>
+                    <select name="notification" id="notification">
+                        <option value="1">Ativadas</option>
+                        <option value="0">Desativadas</option>
+                    </select>
+                    <button type="submit" class="config-button">Guardar</button>
+                </form>
+            </section>
+            <section class="config-section">
+                <h1>Aparência</h1>
+                <section>
+                    <label for="theme">Tema</label>
+                    <select name="theme" id="themeSelect">
+                        <option value="light">Claro</option>
+                        <option value="dark">Escuro</option>
+                    </select>
+                </section>
+            </section>
+            <section class="config-section">
+                <h1> Conta e Segurança</h1>
+                <section>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    <button type="submit" class="config-button">Guardar</button>
+                </section>
         </section>
     </main>
        
@@ -100,6 +130,7 @@
         <h1>dna</h1>
     </footer>
 
+    <script src="assets/js/colormode.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 

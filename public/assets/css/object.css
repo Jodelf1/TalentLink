@@ -140,8 +140,54 @@
 
 .section-title{
     color: var(--secondary-color);
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     font-weight: 900;
+}
+
+/* Notifications*/
+
+.notifications-list{
+    position: fixed;
+    top: 8rem;
+    width: 28rem;
+    height: 85vh;
+    padding: 2rem 1rem;
+    background-color: var(--white-color);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.6rem;
+    border: 0.1rem solid var(--primary-color);
+    overflow-y: scroll;
+    right: -30rem;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.notifications-list.active{
+    right: 3rem;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+.notification{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 0.1rem solid var(--primary-color);
+    color: var(--black-color);
+}
+
+.notification h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.notification p{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.notification.not-read{
+    background-color: var(--background-color);
 }
 
 

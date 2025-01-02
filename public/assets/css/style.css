@@ -24,6 +24,7 @@ main{
     padding-top: 8rem;
     padding-left: 15%;
     min-height: 100vh;
+    position: relative;
 }
 
 /*MENU E SIDEBAR*/
@@ -66,7 +67,7 @@ header{
     width: 100%;
     padding: 1.5rem 3rem;
     border: none;
-    color: var(--secundary-color);
+    color: var(--secondary-color);
     font-weight: 500;
     background-color: var(--background-color);
     border-radius: 1.8rem 0 0 1.8rem;
@@ -76,7 +77,7 @@ header{
 }
 
 .search-form input::placeholder{
-    color: var(--secundary-color);
+    color: var(--secondary-color);
     font-weight: 500;
 }
 
@@ -91,14 +92,18 @@ header{
     outline: none;
 }
 
-.notification{
+.notification-container{
+    cursor: pointer;
+}
+
+.notification-icon{
     color: var(--primary-color);
     padding: 0.5rem 1rem;
     font-size: 3rem;
 }
 .notification-count{
     background-color: red;
-    color: var(--white-color);
+    color: #fff;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border-radius: 50%;
@@ -273,4 +278,23 @@ footer h1{
     font-size: 1.5rem;
 }
 
-/**/
+/* Configurações */
+.configuration-container{
+    height: 85vh;
+}
+
+.config-section{
+    border-bottom: 0.1rem solid var(--primary-color);
+    padding: 2rem;
+    color: var(--black-color);
+}
+.config-section h1{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+.config-section label{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
