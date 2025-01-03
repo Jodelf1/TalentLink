@@ -1,14 +1,14 @@
 {
-    "name": "dell/talent-link",
+    "name": "adia/talent-link-adia",
     "autoload": {
         "psr-4": {
-            "app\\": "app"
+           "app\\": "app"
         }
     },
     "authors": [
         {
-            "name": "Jodelfi",
-            "email": "jodelfimarimba56@gmail.com"
+            "name": "adianethSama",
+            "email": "adianethprazeres@gmail.com"
         }
     ],
     "require": {
