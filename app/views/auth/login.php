@@ -15,5 +15,6 @@
         <input type="password" name="password" placeholder="Senha">
         <button type="submit">Login</button>
     </form>
+    <a href="/register">Não tem uma conta? Crie uma</a>
 </body>
 </html>

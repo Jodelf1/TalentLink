@@ -1,3 +1,5 @@
 <?php $this->layout('layouts/base', ['title' => 'Home']) ?>
 
-<h1>Home</h1>
+<section class="container">
+    <h1 class="section-title">VEJA NOVAS VAGAS</h1>
+</section>

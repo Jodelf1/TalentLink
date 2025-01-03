@@ -1,22 +1,31 @@
 <?php 
-function route($metodo, $path, $router){
 
-    if(!isset($router[$metodo])){
-        throw new Exception("A rota não exite");
+class RouteNotFoundException extends Exception {}
+
+
+function route($metodo, $path, $router)
+{
+    // Verifica se o método existe no roteador
+    if (!isset($router[$metodo])) {
+        throw new RouteNotFoundException("Método HTTP não encontrado.");
     }
 
-    foreach($router[$metodo] as $route => $callback){
+    // Itera sobre as rotas registradas
+    foreach ($router[$metodo] as $route => $callback) {
+        // Substitui os placeholders no padrão da rota
         $pattern = preg_replace('/\{(\w+)\}/', '(?P<\1>[^/]+)', $route);
         $pattern = '@^' . $pattern . '$@';
 
-        if(preg_match($pattern, $path, $matches)){
+        // Verifica se o caminho atual corresponde ao padrão da rota
+        if (preg_match($pattern, $path, $matches)) {
             $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
             return $callback($params);
         }
     }
+
+    // Lança exceção se nenhuma rota for encontrada
+    throw new RouteNotFoundException("Rota não encontrada: $path");
 }
-
-
 
 
 function load($controller, $action, $params = []){
@@ -57,7 +66,9 @@ $router = [
         "/vagas" => fn() => load("vagaController", "index"),
         "/vagas/tag={categoria}" => fn($categoria) => load("vagaController", "listVagasByCategory", $categoria),
         "/vagas/{slug}" => fn($slug) => load("vagaController", "viewVagaDetails", $slug),
-        
+        "/formacoes" => fn() => load("formacaoController", "index"),
+        "/formacoes/{slug}" => fn($slug) => load("formacaoController", "viewCursoDetails", $slug),
+        "/config" => fn() => load("homeController", "config"),
 
         /* Autenticação */
         "/register" => fn() => load("AuthController", "register"),
@@ -67,6 +78,8 @@ $router = [
         /* Rota das empresas */
         "/empresas/{empresaId}" => fn($params) => load("empresaController", "exibirDetalhes", $params),
         "/empresas" => fn() => load("empresaController", "index"),
+        "/empresas/perfil" => fn() => load("empresaController", "mostrarPerfil"),
+        "/empresas/create/profile" => fn() => load("empresaController", "criarPerfil"),
         "/empresas/vagas" => fn() => load("vagaController", "listVagas"),
         "/empresas/create/vaga" => fn() => load("vagaController", "create"),
         "/empresas/edit/vaga" => fn() => load("vagaController", "edit"),

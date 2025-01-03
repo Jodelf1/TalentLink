@@ -21,4 +21,9 @@ class homeController
         //controller::view('contact');
     }
     
+    public function config()
+    {
+        //Função para visualizar a página de configurações
+        controller::view('config');
+    }
 }

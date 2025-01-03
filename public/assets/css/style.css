@@ -325,23 +325,14 @@ footer h1 {
 
 /*                  cards                           .        */
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    margin-left: 250px;
-}
-
 .cards {
-    display: flex;
-    gap: 20px;
+    gap: 2rem;
     flex-wrap: wrap;
 }
 
 .card {
-    background: #f0f9f8;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: var(--background-color);
+    border-radius: 1rem;
     width: 30%;
     padding: 15px;
 }
@@ -399,8 +390,4 @@ footer h1 {
 h1 {
     font-size: 32px;
     color: #020202;
-}
-
-.container {
-    padding: 100px;
 }
