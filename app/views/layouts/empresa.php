@@ -32,7 +32,7 @@
 <body class="light-mode">
     <?= $this->insert('components/empresa/header') ?>
     
-    <main>
+    <main class="main-empresa">
         <ul class="notifications-list" id="notifications-list">
             
         </ul>

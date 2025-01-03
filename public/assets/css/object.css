@@ -190,6 +190,24 @@
     background-color: var(--background-color);
 }
 
+/* EMPRESAS*/
+.action-card-container{
+    gap: 2rem;
+    justify-content: center;
+}
+
+.action-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 0.6rem;
+    color: var(--white-color);
+    width: 24rem;
+    height: 24rem;
+    background-color: var(--primary-color);
+}
 
 @media screen and (max-width: 768px) {
     .title{

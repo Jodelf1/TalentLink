@@ -69,6 +69,7 @@ $router = [
         "/formacoes" => fn() => load("formacaoController", "index"),
         "/formacoes/{slug}" => fn($slug) => load("formacaoController", "viewCursoDetails", $slug),
         "/config" => fn() => load("homeController", "config"),
+        "/empresa/{empresaId}" => fn($params) => load("empresaController", "exibirDetalhes", $params),
 
         /* Autenticação */
         "/register" => fn() => load("AuthController", "register"),
@@ -76,9 +77,8 @@ $router = [
         "/logout" => fn() => load("AuthController", "logout"),
 
         /* Rota das empresas */
-        "/empresas/{empresaId}" => fn($params) => load("empresaController", "exibirDetalhes", $params),
-        "/empresas" => fn() => load("empresaController", "index"),
         "/empresas/perfil" => fn() => load("empresaController", "mostrarPerfil"),
+        "/empresas" => fn() => load("empresaController", "index"),
         "/empresas/create/profile" => fn() => load("empresaController", "criarPerfil"),
         "/empresas/vagas" => fn() => load("vagaController", "listVagas"),
         "/empresas/create/vaga" => fn() => load("vagaController", "create"),

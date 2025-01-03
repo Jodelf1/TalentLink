@@ -31,7 +31,27 @@ class empresaController
         }
     }
 
-    // Controlador empresaController.php
+    // Função para exibir o perfil da empresa
+    public function mostrarPerfil(){
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!$this->auth->isLogged()) {
+            header("Location: /login");
+            exit();
+        }
+        // Obtém o perfil da empresa
+        $perfil = $this->perfilEmpresa->obterPerfil($_SESSION['user']['id']);
+        
+        if ($perfil){
+            return controller::view("empresa/perfil", ['perfil' => $perfil]); 
+        }else{ 
+            // Redireciona para uma página de erro
+            header("Location: /empresas/create/profile");
+        }
+    }
+
+    // Função para exibir os detalhes da empresa
     public function exibirDetalhes($params){
         if (!$this->auth->isLogged()) {
             header("Location: /login");
@@ -45,23 +65,8 @@ class empresaController
         if ($perfil) {
             return controller::view("empresa/detalhes", ['perfil' => $perfil]); 
         }else{
-            return controller::view("errors/404");  // Redireciona para uma página de erro
-        }
-    }
-
-    public function mostrarPerfil(){
-        if (!$this->auth->isLogged()) {
-            header("Location: /login");
-            exit();
-        }
-        // Obtém o perfil da empresa
-        $empresaId = $_SESSION['user']['id'];
-        $perfil = $this->perfilEmpresa->obterPerfil($empresaId);
-        
-        if ($perfil){
-            return controller::view("empresa/perfil", ['perfil' => $perfil]); 
-        }else{
-            return controller::view("errors/404");  // Redireciona para uma página de erro
+            return controller::view('errors/404');
+            echo "NÃO EXISTE PERFIL";
         }
     }
     
