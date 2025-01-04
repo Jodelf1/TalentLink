@@ -43,7 +43,7 @@ class authController
                 echo $result['message'];  // Exibe a mensagem de erro
             } else {
                 $msg = 'Registro bem-sucedido! Verifique seu e-mail para ativar a conta.';
-                return Controller::view('/register', ['msg' => $msg]);
+                return Controller::view('auth/register', ['msg' => $msg]);
                 // Controller::view('admin/utilizadores/index', ['msg' => $msg, 'utilizadores' => $users]);
             }
         }

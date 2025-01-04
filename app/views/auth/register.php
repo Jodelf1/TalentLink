@@ -9,6 +9,8 @@
 
     <h1>Criar Conta</h1>
     <form action="/register" method="post">
+        <?=  isset($msg) ? $msg : '' ?>
+        <br>
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Senha">
         <input type="password" name="password_confirm" placeholder="Confirme a Senha">
