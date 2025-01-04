@@ -76,32 +76,35 @@ class empresaController
             header("Location: /login");
             exit();
         }
-        if($perfil = $this->perfilEmpresa->obterPerfil($empresaId)){
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $empresaId = $_SESSION['user']['id']; // ID da empresa, que deve estar no contexto de login ou sessão
-                $nomeEmpresa = $_POST['nome_empresa'];
-                $descricao = $_POST['descricao'];
-                $localizacao = $_POST['localizacao'];
-                $site = $_POST['site'];
-                $telefone = $_POST['telefone'];
         
-                // Chama o método do Model para criar o perfil
-                $result = $this->perfilEmpresa->criarPerfil($empresaId, $nomeEmpresa, $descricao, $localizacao, $site, $telefone);
+        if($perfil = $this->perfilEmpresa->obterPerfil($_SESSION['user']['id'])){
+            header("Location: /empresas/perfil");
+            exit();
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $empresaId = $_SESSION['user']['id']; // ID da empresa, que deve estar no contexto de login ou sessão
+            $nomeEmpresa = $_POST['nome_empresa'];
+            $descricao = $_POST['descricao'];
+            $localizacao = $_POST['localizacao'];
+            $site = $_POST['site'];
+            $telefone = $_POST['telefone'];
         
-                if ($result) {
-                    // Após a criação, redireciona para a página de detalhes da empresa recém-criada
-                    header("Location: /empresas/{$empresaId}");
-                    exit();
-                } else {
-                    // Caso haja erro ao criar, redirecionar ou mostrar erro
-                    echo "Erro ao criar o perfil da empresa!";
-                }
-            }else{
-                controller::view("empresa/createProfile");
+            // Chama o método do Model para criar o perfil
+            $result = $this->perfilEmpresa->criarPerfil($empresaId, $nomeEmpresa, $descricao, $localizacao, $site, $telefone);
+        
+            if ($result) {
+                // Após a criação, redireciona para a página de detalhes da empresa recém-criada
+                header("Location: /empresas/{$empresaId}");
+                exit();
+            } else {
+                // Caso haja erro ao criar, redirecionar ou mostrar erro
+                echo "Erro ao criar o perfil da empresa!";
             }
         }else{
-            header("Location: /empresas/edit/profile");
-        }
+            controller::view("empresa/createProfile");
+       }
+       
    }
 
 }
