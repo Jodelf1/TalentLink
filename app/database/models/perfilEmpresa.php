@@ -46,8 +46,7 @@ class PerfilEmpresa
     }
 
     // Método para obter o perfil da empresa
-    public function obterPerfil($empresaId)
-    {
+    public function obterPerfil($empresaId){
         try {
             $sql = "SELECT * FROM perfis_empresas WHERE empresa_id = :empresa_id";
             $stmt = $this->pdo->prepare($sql);
@@ -55,13 +54,8 @@ class PerfilEmpresa
             $stmt->execute();
             
             // Verifica se o perfil foi encontrado
-            $perfil = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-            if (!$perfil) {
-                echo "Perfil não encontrado!";
-            }
-
-            return $perfil;
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        
         } catch (PDOException $e) {
             echo 'Erro ao obter o perfil: ' . $e->getMessage();
             return false;

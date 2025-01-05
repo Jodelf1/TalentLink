@@ -45,6 +45,7 @@ body.dark-mode{
     --secondary-color: #00c8c1;
     --background-color: #072F36 ;
     --bege-color: #D4AE74;
+    --color: #f0f9f8;
 
     --sec-color: #005d6d;
     --black-color: #fff;
@@ -64,6 +65,9 @@ body.dark-mode{
     margin: 0 2rem;
     width: 97%;
     border-radius: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 
 }
 

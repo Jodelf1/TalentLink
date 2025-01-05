@@ -43,7 +43,7 @@ class authController
                 echo $result['message'];  // Exibe a mensagem de erro
             } else {
                 $msg = 'Registro bem-sucedido! Verifique seu e-mail para ativar a conta.';
-                Controller::view('/register', ['msg' => $msg]);
+                return Controller::view('/register', ['msg' => $msg]);
                 // Controller::view('admin/utilizadores/index', ['msg' => $msg, 'utilizadores' => $users]);
             }
         }
@@ -62,7 +62,7 @@ class authController
                 case 'empresa':
                     /*setcookie('user', $email, time() + 7 * 24 * 60 * 60, '/');
                     setcookie('user_type', 'empresa', time() + 7 * 24 * 60 * 60, '/');*/
-                    $destino = '/empresa';
+                    $destino = '/empresas';
                     break;
                 case 'candidato':
                     $destino = '/u';
@@ -111,7 +111,7 @@ class authController
                     case 'empresa':
                         /*setcookie('user', $email, time() + 7 * 24 * 60 * 60, '/');
                         setcookie('user_type', 'empresa', time() + 7 * 24 * 60 * 60, '/');*/
-                        $destino = '/empresa';
+                        $destino = '/empresas';
                         break;
                     case 'candidato':
                         $destino = '/u';
@@ -123,12 +123,11 @@ class authController
 
                 $msg = 'Login bem-sucedido!';
 
-                header('Location: /empresas');
-                exit;
+               // header('Location: /empresas');
+               // exit;
 
-                
-               // header("location: $destino");
-                //exit;
+                header("location: $destino");
+                exit;
             }
         }
 

@@ -33,11 +33,19 @@ try{
 }
     */
 
+
     try {
         $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
         $request = $_SERVER['REQUEST_METHOD'];
-
+        // Tenta encontrar e processar a rota
         route($request, $uri, $router);
-    } catch (Exception $e) {
+    
+    } catch (RouteNotFoundException $e) {
+        // Exibe a view 404 se a rota não for encontrada
         controller::view('errors/404');
+        exit;
+    } catch (Exception $e) {
+        // Exibe a mensagem de erro
+        echo $e->getMessage();
+        exit;
     }
