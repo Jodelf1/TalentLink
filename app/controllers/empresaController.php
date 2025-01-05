@@ -39,14 +39,14 @@ class empresaController
         $empresaId = $params['empresaId'];
         // Obtém o perfil da empresa
         $perfil = $this->perfilEmpresa->obterPerfil($empresaId);
-        
+
         // Se o perfil não existir, redireciona para uma página de erro ou lista de empresas
         if ($perfil) {
             
            // Exibe a página de detalhes da empresa
             return Controller::view("PerfilEmpresa/detalhes", ['perfil' => $perfil]); 
         }else{
-            header("Location: /404"); // Redireciona para uma página de erro
+            return Controller::view("errors/404"); 
         }
     
 
