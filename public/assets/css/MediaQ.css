@@ -3,45 +3,50 @@
     .hide-desktop {
         display: none;
         overflow: hidden;
-    } 
+    }
 
 }
 
 /* Mobile */
 @media screen and (max-width: 768px) {
+
     /*Root*/
     .hide-mobile {
         display: none;
         overflow: hidden;
     }
-    .container{
+
+    .container {
         padding: 2.5rem;
         height: auto;
     }
 
     /*header*/
 
-    header{
+    header {
         padding: 1.5rem 2rem;
     }
 
-    ion-icon{
+    ion-icon {
         color: var(--primary-color);
         font-size: 3rem;
     }
-    .home-header .button-area{
+
+    .home-header .button-area {
         gap: 1rem;
     }
-    .logo-container{
+
+    .logo-container {
         width: 30%;
     }
-    .logo-container img{
+
+    .logo-container img {
         width: 100%;
     }
 
     /*Hero*/
 
-    .hero-section{
+    .hero-section {
         align-items: flex-start;
         padding: 15rem 2.5rem 0;
         height: auto;
@@ -49,35 +54,40 @@
         flex-direction: column;
     }
 
-    .hero-text h1{
+    .hero-text h1 {
         font-size: 3.5rem;
     }
-    .hero-text p{
+
+    .hero-text p {
         font-size: 1.5rem;
         line-height: 2.5rem;
     }
-    .hero-text{
+
+    .hero-text {
         width: 100%;
     }
-    .hero-image{
+
+    .hero-image {
         position: initial;
         width: 100%;
     }
 
 
 
-    .quem-somos{
+    .quem-somos {
         padding: 2.5rem;
         line-height: 2.5rem;
     }
-    .quem-somos section{
+
+    .quem-somos section {
         width: 100%;
     }
-    .body-text{
-       font-size: 1.5rem;
+
+    .body-text {
+        font-size: 1.5rem;
     }
 
-    .exp-card-area{
+    .exp-card-area {
         flex-direction: column;
         justify-content: initial;
         align-items: flex-start;
@@ -85,55 +95,77 @@
         padding: 7rem 0;
     }
 
-    .benefits-section{
+    .benefits-section {
         display: flex;
         flex-direction: column;
         padding-bottom: 0;
     }
-    .benefits-section img{
+
+    .benefits-section img {
         position: initial;
         width: 60%;
         align-self: flex-end;
     }
 
-    .benefits-area{
+    .benefits-area {
         flex-direction: column;
         width: 100%;
     }
 
-    .step-card-area{
+    .step-card-area {
         flex-direction: column;
         gap: 2rem;
         padding: 2rem 0 5rem;
     }
-    .step-card{
+
+    .step-card {
         width: 100%;
         gap: 1rem;
     }
-    .step-card img{
+
+    .step-card img {
         width: 5rem;
     }
-    .step-card h1{
+
+    .step-card h1 {
         color: var(--primary-color);
         font-size: 2rem;
     }
-    .step-text{
+
+    .step-text {
         text-align: left;
     }
 
-    footer{
+    footer {
         background: var(--gray-color);
         padding: 5rem 2.5rem;
         color: var(--text-gray);
-        
+
     }
-    .footer-link-info-area{
+
+    .footer-link-info-area {
         gap: 2rem;
     }
-    .footer-link-info-area section{
+
+    .footer-link-info-area section {
         width: 100%;
     }
-    .footer-link-info-area{
+
+    .footer-link-info-area {
         flex-direction: column;
+    }
+
+    /*LOGIN*/
+    .login-form-container {
+        width: 100%;
+    }
+
+    .photo-login-section {
+        display: none;
+    }
+
+    .login-content {
+        width: 90%;
+        gap: 2rem;
     }
 }

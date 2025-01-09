@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,9 +23,7 @@
     <link rel="stylesheet" href="assets/css/object.css">
 </head>
 <body class="light-mode">
-    <?php if(isset($_SESSION['error']) && $_SESSION['error'] > 0): ?>
-        <p>Email ou senha inválidos</p>
-    <?php endif; ?>
+    
     <main class="main-login">
         <section class="login-container">
             <section class="photo-login-section relative" id="photo-login-section">
@@ -37,15 +36,29 @@
                         <h1 class="acess-title">Bem vindo(a) de volta!!</h1>
                         <p class="acess-text">Insira o seu email e sua palavra passe para entrar na sua conta!</p>
                     </section>
-                    <form method="post" class="form-login flex col" id="login-form">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" placeholder="Digite o seu email" id="email" required>
-                        <label for="senha">Palavra-passe</label>
-                        <input type="password" name="password" placeholder="Digite a sua palavra-passe" id="senha" required>
+                    <form action="/login" method="post" class="form-login flex col">
+                        <label for="">Email</label>
+                        <input type="email" name="email" placeholder="Digite o seu email">
+                        <label for="">Palavra-passe</label>
+                        <input type="password" name="password" placeholder="Digite a sua palavra-passe">
                         <button type="submit" class="button">Login</button>
                     </form>
-                    <section class="information-log" id="log-container">
-                        
+                    <section class="information-log">
+                        <div class="info-log log-section">
+                            <p>Precisa confirmar o email antes de fazer login.
+                            (Verifique o seu email, enviamos um link para confirmar a conta!)</p>
+                        </div>
+                        <div class="error-log log-section">
+                            <p>
+                            Email ou senha inválidos
+                            (Verifique se os inseriu corretamente)</p>
+                        </div>
+                        <div class="process-log log-section">
+                            <img src="./assets/img/gif/Animation - 1736328941889.gif" alt="">
+                        </div>
+                        <div class="sucess-log log-section">
+                            </p>Login bem sucedido, redirecionando!</p>
+                        </div>
                     </section>
                 </section>
                 <p> Não tem uma conta? <a href="/register" class="normal-link">Crie uma</a></p>
@@ -83,8 +96,6 @@
             // Altera o fundo imediatamente ao carregar a página
             changeBackground();
         </script>
-        <script src="/assets/js/login.js"></script>
-        <script src="/assets/js/colorchange.js"></script>
     </main>
 </body>
 </html>

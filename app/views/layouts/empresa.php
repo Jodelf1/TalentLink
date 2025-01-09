@@ -41,5 +41,6 @@
 
     <?= $this->insert('components/footer') ?>
     <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/colorchange.js"></script>
 </body>
 </html>

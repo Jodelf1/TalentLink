@@ -71,4 +71,25 @@ class Auth
         }
     }
     
+    public function isative($email){
+        try {
+         
+            // Prepara a consulta
+            $stmt = $this->db->prepare("SELECT isactive FROM phpauth_users WHERE email = :email");
+            $stmt->bindParam(':email', $email);
+    
+            $stmt->execute();
+            
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            // Retorna o valor de 'isactive' ou null se o email não for encontrado
+            return $result ? $result['isactive'] : null;
+    
+        } catch (PDOException $e) {
+            // Registra o erro para depuração
+            error_log('Erro ao verificar a ativação: ' . $e->getMessage());
+            return null; // Retorna null em caso de erro
+        }
+    }
+
 }

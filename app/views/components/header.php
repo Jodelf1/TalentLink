@@ -20,7 +20,7 @@
     if(isset($_SESSION['user'])){ 
 ?>
 
-<section class="sidebar flex col j-around">
+<section class="sidebar flex col j-between">
     <nav class="sidebar-menu">
         <ul class="flex col">
             <a href="" class="user-card candidato-card">

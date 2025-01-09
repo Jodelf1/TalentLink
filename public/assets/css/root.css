@@ -20,14 +20,14 @@
 
 
 body.light-mode{
-    --primary-color: #01B4AE;
+    --primary-color: #0396c7;
     --hover-button-color: #a1d0d8;
     --secondary-color: #072F36;
-    --background-color: #EDFAF9;
+    --background-color: #e6f9ff;
     --bege-color: #D4AE74;
 
 
-    --sec-color: #005d6d;
+    --sec-color: #026DA7;
     --black-color: #000000;
     --dark-color: #121212;
     --white-color: #FFFFFF;
@@ -40,10 +40,10 @@ body.light-mode{
 }
 
 body.dark-mode{
-    --primary-color: #02ded7;
+    --primary-color: #0396c7;
     --hover-button-color: #a1d0d8;
     --secondary-color: #00c8c1;
-    --background-color: #072F36 ;
+    --background-color: #151e2d;
     --bege-color: #D4AE74;
     --color: #f0f9f8;
 

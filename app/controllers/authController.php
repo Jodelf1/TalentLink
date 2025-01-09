@@ -82,18 +82,26 @@ class authController
     public function login()
     {
         //Função para fazer login
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+ 
+            /*if($this->auth->isative($email)){
+                echo json_encode([
+                    'success' => false,
+                    'type' => "info"
+                ]);
+            }*/
 
             $result = $this->auth->login($email, $password);
-            $_SESSION['error'] = 0;
-
+            
             if ($result['error']){
-                $_SESSION['error']++;
-                header('location: /login');
-                exit;
+
+                echo json_encode([
+                    'success' => false,
+                    'type' => "error"
+                ]);
+
             } else {
                 $utilizador = new Utilizador;
                 $acesso = $utilizador->findByEmail($email);
@@ -104,6 +112,7 @@ class authController
                     'user_type' => $acesso['user_type'],
                     'hash' => $result['hash']
                 ];
+
                 switch($acesso['user_type']) {
                     case 'admin':
                         $destino = '/admin';
@@ -121,13 +130,10 @@ class authController
                         break;
                 }
 
-                $msg = 'Login bem-sucedido!';
-
-               // header('Location: /empresas');
-               // exit;
-
-                header("location: $destino");
-                exit;
+                echo json_encode([
+                    'success' => true,
+                    'destino' => $destino
+                ]);  
             }
         }
 

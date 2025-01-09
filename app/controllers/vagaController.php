@@ -11,6 +11,11 @@ class vagaController
     public function create($data)
     {
         //Função para criar uma nova vaga
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $empresa_id = $_SESSION['user']['id'];
+        }
+
+
     }
 
     public function edit($vaga_id, $data)

@@ -3,7 +3,8 @@
     font-size: 1.3rem;
     color: var(--white-color);
     background-color: var(--primary-color);
-    border-radius: 0.5rem;
+    border: none;
+    border-radius: 0.6rem;
     font-weight: 600;
     transition: 0.3s;
 }
@@ -28,6 +29,16 @@
     color: var(--white-color);
     transition: 0.3s;
     border: solid 0.3rem var(--sec-color);
+}
+
+
+.normal-link{
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.normal-link:hover{
+    text-decoration: underline;
 }
 
 .title{
@@ -208,6 +219,41 @@
     height: 24rem;
     background-color: var(--primary-color);
 }
+
+
+/* LOGIN AND REGISTER*/
+
+.log-section{
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+}
+
+.log-section P{
+    font-size: 1.3rem;
+}
+
+.log-section img{
+    width: 6rem;
+}
+
+.error-log{
+    background-color: #F8D7DA;
+    color: #721C24;
+    border: 0.1rem solid #F5C6CB;
+}
+
+.info-log{
+    background-color: #D1ECF1;
+    color: #0C5460;
+    border: 0.1rem solid #BEE5EB;
+}
+
+.sucess-log{
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 0.1rem solid #C3E6CB;
+}
+
 
 @media screen and (max-width: 768px) {
     .title{
