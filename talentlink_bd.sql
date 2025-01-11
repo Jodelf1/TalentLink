@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31-Dez-2024 às 18:15
+-- Tempo de geração: 11-Jan-2025 às 22:08
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -153,59 +153,6 @@ CREATE TABLE `phpauth_config` (
   `value` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `phpauth_config`
---
-
-INSERT INTO `phpauth_config` (`id`, `setting`, `value`) VALUES
-(1, 'allow_concurrent_sessions', '0'),
-(2, 'attack_mitigation_time', '+30 minutes'),
-(3, 'attempts_before_ban', '30'),
-(4, 'attempts_before_verify', '5'),
-(5, 'bcrypt_cost', '10'),
-(6, 'cookie_domain', ''),
-(7, 'cookie_forget', '+30 minutes'),
-(8, 'cookie_http', '1'),
-(9, 'cookie_name', 'phpauth_session_cookie'),
-(10, 'cookie_path', '/'),
-(11, 'cookie_remember', '+1 month'),
-(12, 'cookie_renew', '+5 minutes'),
-(13, 'cookie_samesite', 'Strict'),
-(14, 'cookie_secure', '1'),
-(15, 'custom_datetime_format', 'Y-m-d H:i'),
-(16, 'emailmessage_suppress_activation', '0'),
-(17, 'emailmessage_suppress_reset', '0'),
-(18, 'request_key_expiration', '+10 minutes'),
-(19, 'site_activation_page', 'activate'),
-(20, 'site_activation_page_append_code', '0'),
-(21, 'site_email', 'no-reply@phpauth.cuonic.com'),
-(22, 'site_key', 'fghuior.)/!/jdUkd8s2!7HVHG7777ghg'),
-(23, 'site_language', 'en_GB'),
-(24, 'site_name', 'PHPAuth'),
-(25, 'site_password_reset_page', 'reset'),
-(26, 'site_password_reset_page_append_code', '0'),
-(27, 'site_timezone', 'Europe/Paris'),
-(28, 'site_url', 'https://github.com/PHPAuth/PHPAuth'),
-(29, 'smtp', '0'),
-(30, 'smtp_auth', '1'),
-(31, 'smtp_debug', '0'),
-(32, 'smtp_host', 'smtp.example.com'),
-(33, 'smtp_password', 'password'),
-(34, 'smtp_port', '25'),
-(35, 'smtp_security', ''),
-(36, 'smtp_username', 'email@example.com'),
-(37, 'table_attempts', 'phpauth_attempts'),
-(38, 'table_emails_banned', 'phpauth_emails_banned'),
-(39, 'table_requests', 'phpauth_requests'),
-(40, 'table_sessions', 'phpauth_sessions'),
-(41, 'table_translations', 'phpauth_translation_dictionary'),
-(42, 'table_users', 'phpauth_users'),
-(43, 'translation_source', 'php'),
-(44, 'uses_session', '0'),
-(45, 'verify_email_max_length', '100'),
-(46, 'verify_email_min_length', '5'),
-(47, 'verify_password_min_length', '3');
-
 -- --------------------------------------------------------
 
 --
@@ -263,14 +210,6 @@ CREATE TABLE `phpauth_users` (
   `user_type` enum('candidato','empresa','formador','admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `phpauth_users`
---
-
-INSERT INTO `phpauth_users` (`id`, `email`, `password`, `isactive`, `dt`, `user_type`) VALUES
-(3, 'itzjoestar@proton.me', '$2y$10$9lGPRDVUywVqukIvgWF0f.kZxmu4Df6Bl3ZgNYkO/XyPYPVsYRds.', 0, '2024-12-31 17:25:01', 'candidato'),
-(4, 'jodelfimarimba@gmail.com', '$2y$10$V7qy2G2h/8FnDC2GrxOvTOBrutvx0.AUX4L1IxPthWX6FvibVrLtW', 0, '2024-12-31 17:27:32', 'empresa');
-
 -- --------------------------------------------------------
 
 --
@@ -283,7 +222,7 @@ CREATE TABLE `vagas` (
   `descricao` text NOT NULL,
   `empresa_id` int(10) UNSIGNED NOT NULL,
   `requisitos` text NOT NULL,
-  `localidade` varchar(255) NOT NULL,
+  `localizacao` varchar(255) NOT NULL,
   `salario_min` decimal(10,2) NOT NULL,
   `salario_max` decimal(10,2) NOT NULL,
   `data_expiracao` date NOT NULL,
@@ -443,13 +382,13 @@ ALTER TABLE `perfis_formadores`
 -- AUTO_INCREMENT de tabela `phpauth_config`
 --
 ALTER TABLE `phpauth_config`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `phpauth_users`
 --
 ALTER TABLE `phpauth_users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `vagas`
