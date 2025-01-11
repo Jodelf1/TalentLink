@@ -14,7 +14,7 @@ class Vaga{
     }
 
     // Método para criar uma nova vaga
-    public function criarVaga($data)
+    public function create($data)
     {
         // Validação simples para garantir que todos os campos necessários foram preenchidos
         if (empty($data['empresaId']) || empty($data['titulo']) || empty($data['descricao'])) {
@@ -23,8 +23,8 @@ class Vaga{
         }
 
         try {
-            $sql = "INSERT INTO vagas (empresa_id, titulo, descricao, localizacao, tipo_contrato, salario) 
-                    VALUES (:empresa_id, :titulo, :descricao, :localizacao, :tipo_contrato, :salario)";
+            $sql = "INSERT INTO vagas (titulo, descricao, empresa_id, localizacao, salario_min, data_expiracao, status, categoria_id) 
+                    VALUES (:titulo, :descricao, :empresaId, :localizacao, :salario_min, :data_expiracao, :status, :categoria)";
 
             $stmt = $this->pdo->prepare($sql);
             return $stmt->execute($data);
@@ -69,6 +69,19 @@ class Vaga{
             $sql = "SELECT * FROM vagas WHERE categoria = :categoria";
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':categoria', $categoria);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Erro ao listar as vagas por categoria: ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function listarVagasPorEmpresa($empresaId){
+        try {
+            $sql = "SELECT * FROM vagas WHERE empresa_id = :empresa_id";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':empresa_id', $empresaId);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {

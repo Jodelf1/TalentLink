@@ -62,7 +62,7 @@ class authController
                 case 'empresa':
                     /*setcookie('user', $email, time() + 7 * 24 * 60 * 60, '/');
                     setcookie('user_type', 'empresa', time() + 7 * 24 * 60 * 60, '/');*/
-                    $destino = '/empresas';
+                    $destino = '/c';
                     break;
                 case 'candidato':
                     $destino = '/u';
@@ -120,7 +120,7 @@ class authController
                     case 'empresa':
                         /*setcookie('user', $email, time() + 7 * 24 * 60 * 60, '/');
                         setcookie('user_type', 'empresa', time() + 7 * 24 * 60 * 60, '/');*/
-                        $destino = '/empresas';
+                        $destino = '/c';
                         break;
                     case 'candidato':
                         $destino = '/u';
@@ -154,12 +154,70 @@ class authController
         //Função para verificar se o utilizador está logado
         return $this->auth->isLogged();
     }
-    protected function checkAuthentication()
+    public function checkAuthentication()
     {
         //Função para verificar se o utilizador está autenticado
         if (!isset($_SESSION['user'])) {
             header('Location: /login');
             exit();
+        }
+    }
+
+    public function redirect(){
+        if ($this->auth->isLogged()) {
+            switch($_SESSION['user']['user_type']) {
+                case 'admin':
+                    $destino = '/admin';
+                    break;
+                case 'empresa':
+                    $destino = '/c';
+                    break;
+                case 'candidato':
+                    $destino = '/u';
+                    break;
+                case 'formador':
+                    $destino = '/formador';
+                    break;
+            }
+
+            header("location: $destino");
+            return 1;
+        }
+    }
+
+    public function protect($usertype)
+    {
+        if ($this->auth->isLogged()) {
+            if ($_SESSION['user']['user_type'] !== $usertype) {
+                switch ($_SESSION['user']['user_type']) {
+                    case 'admin':
+                        $destino = '/admin';
+                        break;
+                    case 'empresa':
+                        $destino = '/c';
+                        break;
+                    case 'candidato':
+                        $destino = '/u';
+                        break;
+                    case 'formador':
+                        $destino = '/formador';
+                        break;
+                }
+
+                header("location: $destino");
+                exit;
+            }
+        } else {
+            header('Location: /login');
+            exit;
+        }
+    }
+
+    public function testActive(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        }else{
+            controller::view("test");
         }
     }
 

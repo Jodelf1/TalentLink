@@ -1,18 +1,51 @@
 <?php
 namespace app\controllers;
+use app\database\models\vaga;
 
 class vagaController
 {
+
+    public function __construct(){
+        $this->vaga = new vaga;
+    }
     public function index()
     {
+
         controller::view('vaga');
     }
 
     public function create($data)
     {
         //Função para criar uma nova vaga
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $empresa_id = $_SESSION['user']['id'];
+
+            $titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRING);
+            $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_STRING);
+            $localizacao = filter_input(INPUT_POST, 'localizacao', FILTER_SANITIZE_STRING);
+            $salarioMin = $_POST['salario_minimo'];
+            $salarioMax = $_POST['salario_maximo'];
+            $empresaId = $_SESSION['user']['id'];
+            $dataExpiracao = $_POST['data_expiracao'];
+
+            $data = [
+                'titulo' => $titulo,
+                'descricao' => $descricao,
+                'empresaId' => $empresaId,
+                'localizacao' => $localizacao,
+                'salario_min' => $salarioMin,
+                //'salarioMax' => $salarioMax,
+                'data_expiracao' => $dataExpiracao,
+                'status' => 1,
+                'categoria' => 1
+            ];
+
+            
+
+            $this->vaga->create($data);
+
+        }else{
+            controller::view('empresa/createVaga');
         }
 
 
@@ -33,9 +66,12 @@ class vagaController
         //Função para listar todas as vagas
     }
 
-    public function listVagasByCompany($empresa_id)
+    public function listVagasByCompany()
     {
         //Função para listar todas as vagas de uma empresa
+        $vagas = $this->vaga->listarVagasPorEmpresa($_SESSION['user']['id']);
+        
+        controller::view('empresa/vagas', ['vagas' => $vagas]);
     }
 
     public function listVagasByCategory($categoria_id)

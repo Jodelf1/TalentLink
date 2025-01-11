@@ -1,7 +1,7 @@
 <?php 
 if($_SESSION['user']['user_type'] == 'empresa'){
     $this->layout('layouts/empresa', ['title' => 'DashBoard']);
-    $destino = "/empresas"; 
+    $destino = "/c"; 
 }else{
     $this->layout('layouts/base', ['title' => 'Página não encontrada']);
     $destino = "/";

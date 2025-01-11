@@ -70,6 +70,7 @@ $router = [
         "/formacoes/{slug}" => fn($slug) => load("formacaoController", "viewCursoDetails", $slug),
         "/config" => fn() => load("homeController", "config"),
         "/empresa/{empresaId}" => fn($params) => load("empresaController", "exibirDetalhes", $params),
+        "/test" => fn() => load("authController", "testActive"),
 
         /* Autenticação */
         "/register" => fn() => load("AuthController", "register"),
@@ -77,24 +78,24 @@ $router = [
         "/logout" => fn() => load("AuthController", "logout"),
 
         /* Rota das empresas */
-        "/empresas/perfil" => fn() => load("empresaController", "mostrarPerfil"),
-        "/empresas" => fn() => load("empresaController", "index"),
-        "/empresas/create/profile" => fn() => load("empresaController", "criarPerfil"),
-        "/empresas/vagas" => fn() => load("vagaController", "listVagas"),
-        "/empresas/create/vaga" => fn() => load("vagaController", "create"),
-        "/empresas/edit/vaga" => fn() => load("vagaController", "edit"),
-        "/empresas/delete/vaga" => fn() => load("vagaController", "delete"),
-        "/empresas/candidaturas/{slug}" => fn($slug) => load("vagaController", "listVagaApplications", $slug),
+        "/c/perfil" => fn() => load("empresaController", "mostrarPerfil"),
+        "/c" => fn() => load("empresaController", "index"),
+        "/c/create/profile" => fn() => load("empresaController", "criarPerfil"),
+        "/c/vagas" => fn() => load("vagaController", "listVagasByCompany"),
+        "/c/create/vaga" => fn() => load("vagaController", "create"),
+        "/c/edit/vaga" => fn() => load("vagaController", "edit"),
+        "/c/delete/vaga" => fn() => load("vagaController", "delete"),
+        "/c/candidaturas/{slug}" => fn($slug) => load("vagaController", "listVagaApplications", $slug),
        
         /* Rotas dos Candidatos */
-
-        "/cv" => fn() => load("cvController", "index"),
-        "/candidaturas" => fn() => load("vagaController", "listVagaApplicationsByCandidate"),
-        "/cv/create" => fn() => load("cvController", "createCV"),
-        "/cv/edit" => fn() => load("cvController", "editCV"),
-        "/cv/share/{id_hash}" => fn($id_hash) => load("cvController", "viewCV", $id_hash),
-        "/cv/download" => fn() => load("cvController", "downloadCV"),
-        "/candidaturas/{slug}" => fn($slug) => load("vagaController", "viewApplicationDetails", $slug),
+        "/u" => fn() => load("userController", "index"),
+        "/u/cv" => fn() => load("cvController", "index"),
+        "/u/candidaturas" => fn() => load("vagaController", "listVagaApplicationsByCandidate"),
+        "/u/cv/create" => fn() => load("cvController", "createCV"),
+        "/u/cv/edit" => fn() => load("cvController", "editCV"),
+        "/u/cv/share/{id_hash}" => fn($id_hash) => load("cvController", "viewCV", $id_hash),
+        "/u/cv/download" => fn() => load("cvController", "downloadCV"),
+        "/u/candidaturas/{slug}" => fn($slug) => load("vagaController", "viewApplicationDetails", $slug),
 
         /* Rotas de Administradores */
 
@@ -124,10 +125,10 @@ $router = [
 
         /* Rota das empresas */
         
-        "/empresas/create" => fn() => load("empresaController", "criarPerfil"),
-        "/empresas/create/vaga" => fn() => load("vagaController", "create"),
-        "/empresas/edit/vaga" => fn() => load("vagaController", "edit"),
-        "/empresas/delete/vaga" => fn() => load("vagaController", "delete"),
+        "/c/create" => fn() => load("empresaController", "criarPerfil"),
+        "/c/create/vaga" => fn() => load("vagaController", "create"),
+        "/c/edit/vaga" => fn() => load("vagaController", "edit"),
+        "/c/delete/vaga" => fn() => load("vagaController", "delete"),
         
         /* Rotas dos Candidatos */
         "/cv/create" => fn() => load("cvController", "createCV"),

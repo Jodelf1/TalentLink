@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\database\models\PerfilEmpresa;
 use app\database\models\Auth;
+use app\controllers\authController;
 
 class empresaController
 {
@@ -14,17 +15,20 @@ class empresaController
     {
         $this->perfilEmpresa = new PerfilEmpresa();
         $this->auth = new Auth();
+        $this->authc = new authController;
+
     }
 
     // Função para exibir o formulário de criação de perfil
     public function index(){
-        if (!$this->auth->isLogged()) {
-            header("Location: /login");
-            exit();
-        }
 
-        if(!$this->perfilEmpresa->obterPerfil($_SESSION['user']['id'])){
-            header("Location: /empresas/create/profile");
+        //$this->authc->checkAuthentication();
+        //$this->authc->protect("empresa");
+
+        $perfil = $this->perfilEmpresa->obterPerfil($_SESSION['user']['id']);
+
+        if(!$perfil){
+            header("Location: /c/create/profile");
             exit();
         }else{
             Controller::view("empresa/index");
@@ -33,13 +37,10 @@ class empresaController
 
     // Função para exibir o perfil da empresa
     public function mostrarPerfil(){
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-        if (!$this->auth->isLogged()) {
-            header("Location: /login");
-            exit();
-        }
+
+        $this->authc->checkAuthentication();
+        //$this->authc->protect("empresa");
+
         // Obtém o perfil da empresa
         $perfil = $this->perfilEmpresa->obterPerfil($_SESSION['user']['id']);
         
@@ -47,16 +48,14 @@ class empresaController
             return controller::view("empresa/perfil", ['perfil' => $perfil]); 
         }else{ 
             // Redireciona para uma página de erro
-            header("Location: /empresas/create/profile");
+            header("Location: /c/create/profile");
         }
     }
 
     // Função para exibir os detalhes da empresa
     public function exibirDetalhes($params){
-        if (!$this->auth->isLogged()) {
-            header("Location: /login");
-            exit();
-        }
+    
+
         $empresaId = $params['empresaId'];
         // Obtém o perfil da empresa
         $perfil = $this->perfilEmpresa->obterPerfil($empresaId);
@@ -72,13 +71,12 @@ class empresaController
     
     // Função para criar o perfil da empresa
     public function criarPerfil(){
-        if (!$this->auth->isLogged()) {
-            header("Location: /login");
-            exit();
-        }
+        
+        $this->authc->checkAuthentication();
+        $this->authc->protect("empresa");
         
         if($perfil = $this->perfilEmpresa->obterPerfil($_SESSION['user']['id'])){
-            header("Location: /empresas/perfil");
+            header("Location: /c/perfil");
             exit();
         }
 
@@ -95,7 +93,7 @@ class empresaController
         
             if ($result) {
                 // Após a criação, redireciona para a página de detalhes da empresa recém-criada
-                header("Location: /empresas/{$empresaId}");
+                header("Location: /c/{$empresaId}");
                 exit();
             } else {
                 // Caso haja erro ao criar, redirecionar ou mostrar erro

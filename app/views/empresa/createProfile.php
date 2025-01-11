@@ -152,7 +152,7 @@
     <h1>Criar Perfil da Empresa</h1>
 
     <div class="form-container">
-        <form action="/empresas/create" method="POST">
+        <form action="/c/create" method="POST">
             
             <div class="form-group">
                 <label for="nome_empresa">Nome da Empresa:</label>
@@ -183,7 +183,7 @@
                 <button type="submit">Criar Perfil</button>
             </div>
         </form>
-        <a href="/empresas">Voltar à página anterior</a>
+        <a href="/c">Voltar à página anterior</a>
     </div>
 
 </body>
