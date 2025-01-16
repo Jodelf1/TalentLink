@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Jan-2025 às 22:08
+-- Tempo de geração: 16-Jan-2025 às 20:15
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -75,7 +75,9 @@ CREATE TABLE `cv` (
 
 CREATE TABLE `imagens` (
   `id` int(11) NOT NULL,
-  `referencia_id` int(10) UNSIGNED NOT NULL,
+  `vaga_referencia_id` int(10) UNSIGNED DEFAULT NULL,
+  `formacao_referencia_id` int(10) UNSIGNED DEFAULT NULL,
+  `utilizador_referencia_id` int(10) UNSIGNED DEFAULT NULL,
   `tipo_referencia` enum('vaga','formacao','utilizador') NOT NULL,
   `path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -229,7 +231,8 @@ CREATE TABLE `vagas` (
   `status` enum('ativo','expirado','deletado') DEFAULT 'ativo',
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `categoria_id` int(11) NOT NULL
+  `categoria_id` int(11) NOT NULL,
+  `ref` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -279,7 +282,9 @@ ALTER TABLE `cv`
 --
 ALTER TABLE `imagens`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_imagens_formacoes` (`referencia_id`);
+  ADD KEY `fk_imagens_vagas` (`vaga_referencia_id`),
+  ADD KEY `fk_imagens_formacoes` (`formacao_referencia_id`),
+  ADD KEY `fk_imagens_utilizadores` (`utilizador_referencia_id`);
 
 --
 -- Índices para tabela `notificacoes`
@@ -423,9 +428,9 @@ ALTER TABLE `cv`
 -- Limitadores para a tabela `imagens`
 --
 ALTER TABLE `imagens`
-  ADD CONSTRAINT `fk_imagens_formacoes` FOREIGN KEY (`referencia_id`) REFERENCES `webinars_formacoes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_imagens_utilizadores` FOREIGN KEY (`referencia_id`) REFERENCES `phpauth_users` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_imagens_vagas` FOREIGN KEY (`referencia_id`) REFERENCES `vagas` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_imagens_formacoes` FOREIGN KEY (`formacao_referencia_id`) REFERENCES `webinars_formacoes` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_imagens_utilizadores` FOREIGN KEY (`utilizador_referencia_id`) REFERENCES `phpauth_users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_imagens_vagas` FOREIGN KEY (`vaga_referencia_id`) REFERENCES `vagas` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `notificacoes`
