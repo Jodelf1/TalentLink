@@ -17,13 +17,15 @@ $this->layout('layouts/base', ['title' => 'Home']);
             <p class="vaga-description"><?= $vaga['vaga']['descricao'] ?></p>
             <p class="vaga-details"><i class="fa-solid fa-business-time"></i> Integral | <i class="fa-solid fa-location-dot"></i> Luanda, Talatona</p>
             <section class="flex row a-center vaga-application-area">
-                <a href="#" class="btn">Candidatar-se</a>
                 <p class="info"><?= $vaga['n_candidaturas'] ?> Pessoas já se candidataram</p>
             </section>
         </section>
-    </div>  
-    <div class>
 
+    </div>  
+    <div class="vaga-card">
+        <form action="/vaga/<?= $vaga['vaga']['id']?>/apply" method="post">
+            <button type="submit" class="btn">Candidatar-se</button>
+        </form>
     </div> 
 </section>
 <section class="information-container">
