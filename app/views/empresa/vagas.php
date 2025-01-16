@@ -9,29 +9,25 @@
 <?php if($vagas){ ?>
 <section class="container">
     <h1 class="section-title">Minhas Vagas</h1>
-    <section class="vaga-empresa-area">
+    <section class="vaga-empresa-area flex ">
         <?php foreach($vagas as $vaga):?>
-                    <a href="/c/vaga/<?php echo $vaga['id'] ?>"
-                        class="vaga-empresa-card col flex f-center">
-                        <img src="/assets/img/" alt="" class="newsletter-background">
-                        <h2 class="assunto hide-mobile"></h2>
-                        <section class="description">
-                            <section class="titulo t-center">
-                                <h1><?= $vaga['titulo'] ?></h1>
-                            </section>
-                        </section>
-                    </a>
+            <section class="vaga-empresa-card col flex">
+                <img src="<?= $vaga['img']?>" class="capa-image">
+                <section class="description">
+                    <h1><strong>Cargo para: </strong><?= $vaga['vaga']['titulo'] ?></h1>
+                </section>
+                <a href="/c/vaga/<?= $vaga['vaga']['id'] ?>">Detalhes</a>
+                <p><?= $vaga['n_candidaturas']?> Candidaturas recebidas</p><a href=""></a>
+            </section>
         <?php endforeach; ?>
     </section>
 </section>
 <?php 
 }else{?>
 <section class="container j-center a-center">
-    <?= var_dump($vagas) ?>
     <h1 class="section-title">Sem vagas publicadas</h1>
     <p class="not-found-text">Ainda não publicou vagas, ou as suas já expiraram!</p>
     <a href="/c/create/vaga" class="not-found-link">Publicar Vaga Agora</a>
-    <?= $_SESSION['user']['id']?>
 </section>
 <?php } ?>
 

@@ -11,13 +11,14 @@ class imageController{
 
     public function create($data){
         $arquivo = $data['imagem'];
+        $tabela = $data['tabela'];
         $arquivoNovo = explode('.', $arquivo['name']);
         $extensao = strtolower(end($arquivoNovo));
 
         if ($extensao != "jpg" && $extensao != "jpeg" && $extensao != "png") {
             $msg = 'Formato inválido. Converta para jpg, png ou jpeg';
         } else {
-            $nome = hash('sha256', bin2hex(random_bytes(16)) . $arquivo['name']) . '.' . $extensao;
+            $nome = 'TalentLink_vagaimage_' . hash('sha256', bin2hex(random_bytes(16)) . $arquivo['name']) . '.' . $extensao;
             $destino = 'upload/' . $nome;
 
             // Ajustando as barras para o padrão correto
@@ -32,12 +33,17 @@ class imageController{
 
             $dataImg = [
                 'path' => '/assets/img/upload/' . $nome,
-                'tipo_referecia' => $data['referencia'],
-                'referencia_id' => $data['referencia_id']
+                'tipo_referencia' => $data['tipo_referencia'],
+                'vaga_referencia_id' => $data['vaga_referencia_id']
             ];
 
-            $this->image->create($dataImg);
+            $this->image->create($dataImg, $tabela);
         }
 
+    }
+
+    public function getImage($data, $refType){
+        $image = $this->image->find($data, $refType);
+        return $image;
     }
 }

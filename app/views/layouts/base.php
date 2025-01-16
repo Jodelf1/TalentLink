@@ -23,25 +23,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap" rel="stylesheet">
 
     <!-- Style -->
-    <link rel="stylesheet" href="assets/css/root.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/MediaQ.css">
-    <link rel="stylesheet" href="assets/css/object.css">
+    <link rel="stylesheet" href="/assets/css/root.css">
+    <link rel="stylesheet" href="/assets/css/newstyle.css">
+    <link rel="stylesheet" href="/assets/css/MediaQ.css">
+    <link rel="stylesheet" href="/assets/css/object.css">
 
 </head>
-<body class="light-mode">
-    <?= $this->insert('components/header') ?>
-    
-    <main>
-        <ul class="notifications-list" id="notifications-list">
-            
-        </ul>
-        <?= $this->section('content') ?>
-    </main>
-
+<body class="light-mode index-body">
+    <?= $this->insert('components/sidebar') ?>
+    <section class="mainContent">
+        <?= $this->insert('components/header') ?>
+        <main> 
+            <?= $this->section('content') ?>
+        </main>
     <?= $this->insert('components/footer') ?>
+    </section>
     
-    <script src="assets/js/index.js"></script>
     <script src="/assets/js/colorchange.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@ class homeController
 
     public function index()
     {
-        $this->auth->redirect();
+       
         controller::view('index');        
     }
 

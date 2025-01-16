@@ -40,8 +40,17 @@ class authController
             $result = $this->auth->register($email, $password, $password_confirm, $data);
     
             if ($result['error']) {
-                echo $result['message'];  // Exibe a mensagem de erro
+                echo json_encode([
+                    'success' => false,
+                    'type' => "error",
+                    'msg' => "Houve um erro, tente novamente mais tarde!"
+                ]);  // Exibe a mensagem de erro
             } else {
+                echo json_encode([
+                    'success' => true,
+                    'type' => "sucess",
+                    'msg' => "Houve um erro, tente novamente mais tarde!"
+                ]);
                 $msg = 'Registro bem-sucedido! Verifique seu e-mail para ativar a conta.';
                 return Controller::view('auth/register', ['msg' => $msg]);
                 // Controller::view('admin/utilizadores/index', ['msg' => $msg, 'utilizadores' => $users]);
@@ -99,7 +108,8 @@ class authController
 
                 echo json_encode([
                     'success' => false,
-                    'type' => "error"
+                    'type' => "error",
+                    'message' => "Email ou senha inválidos (Verifique se os inseriu corretamente)"
                 ]);
 
             } else {
@@ -123,7 +133,7 @@ class authController
                         $destino = '/c';
                         break;
                     case 'candidato':
-                        $destino = '/u';
+                        $destino = '/';
                         break;
                     case 'formador':
                         $destino = '/formador';
@@ -132,7 +142,8 @@ class authController
 
                 echo json_encode([
                     'success' => true,
-                    'destino' => $destino
+                    'destino' => $destino,
+                    'message' => "Login bem sucedido, redirecionando!"
                 ]);  
             }
         }
@@ -173,7 +184,7 @@ class authController
                     $destino = '/c';
                     break;
                 case 'candidato':
-                    $destino = '/u';
+                    $destino = '/';
                     break;
                 case 'formador':
                     $destino = '/formador';
@@ -197,7 +208,7 @@ class authController
                         $destino = '/c';
                         break;
                     case 'candidato':
-                        $destino = '/u';
+                        $destino = '/';
                         break;
                     case 'formador':
                         $destino = '/formador';

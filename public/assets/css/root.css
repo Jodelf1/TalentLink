@@ -21,9 +21,12 @@
 
 body.light-mode{
     --primary-color: #0396c7;
-    --hover-button-color: #a1d0d8;
     --secondary-color: #072F36;
-    --background-color: #e6f9ff;
+    --third-color:#026DA7 ;
+    --background-color: #ebfaff;
+    --hover-color: #d3eff5;
+
+
     --bege-color: #D4AE74;
 
 
@@ -43,13 +46,14 @@ body.dark-mode{
     --primary-color: #0396c7;
     --hover-button-color:#00c8c1;
     --secondary-color: #a1d0d8;
+    --third-color:#37b9ff ;
     --background-color: #151e2d;
     --bege-color: #D4AE74;
     --color: #f0f9f8;
 
     --sec-color: #005d6d;
     --black-color: #fff;
-    --dark-color: #121212;
+    --dark-color: #dddddd;
     --white-color: #151B23;
     --light-color: #ececec2f;
     --gray-color: #2E2F2F;
@@ -63,7 +67,7 @@ body.dark-mode{
     padding: 3rem;
     background: var(--white-color);
     margin: 0 2rem;
-    width: 97%;
+    width: 80%;
     border-radius: 0.6rem;
     display: flex;
     flex-direction: column;

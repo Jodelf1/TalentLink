@@ -7,13 +7,14 @@
         </form>
     </section>
     <section class="flex row a-center">
-        <a href="/c/perfil" class="user-card">
+        <!-- <a href="/c/perfil" class="user-card">
             <img src="/assets/img/profile-example.jpg" alt="" class="user-img">
             <section class="flex col">
                 <h1 class="user-name">Nome da empresa</h1>
-                <p class="user-email"><?php echo $_SESSION['user']['email'] ?></p>
+                <p class="user-email"> <?php #echo $_SESSION['user']['email'] ?></p>
             </section>
-        </a>
+        </a> -->
+        
         <a class="notification-container relative" id="notification-button">
             <i class="fa-solid fa-bell notification-icon"></i>
             <span class="notification-count absolute">1</span>

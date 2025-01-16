@@ -63,14 +63,24 @@ $router = [
         "/" => fn() => load("homeController", "index"),
         "/sobre" => fn() => load("homeController", "about"),
         "/contato" => fn() => load("homeController", "contact"),
-        "/vagas" => fn() => load("vagaController", "index"),
-        "/vagas/tag={categoria}" => fn($categoria) => load("vagaController", "listVagasByCategory", $categoria),
-        "/vagas/{slug}" => fn($slug) => load("vagaController", "viewVagaDetails", $slug),
         "/formacoes" => fn() => load("formacaoController", "index"),
         "/formacoes/{slug}" => fn($slug) => load("formacaoController", "viewCursoDetails", $slug),
         "/config" => fn() => load("homeController", "config"),
         "/empresa/{empresaId}" => fn($params) => load("empresaController", "exibirDetalhes", $params),
         "/test" => fn() => load("authController", "testActive"),
+
+        "/cv" => fn() => load("cvController", "index"),
+        "/candidaturas" => fn() => load("vagaController", "listVagaApplicationsByCandidate"),
+        "/cv/create" => fn() => load("cvController", "createCV"),
+        "/cv/edit" => fn() => load("cvController", "editCV"),
+        "/cv/share/{id_hash}" => fn($id_hash) => load("cvController", "viewCV", $id_hash),
+        "/cv/download" => fn() => load("cvController", "downloadCV"),
+        "/candidaturas" => fn() => load("vagaController", "viewApplications"),
+        "/candidaturas/{id}" => fn($params) => load("vagaController", "viewApplicationDetails", $params),
+
+        "/vagas" => fn() => load("vagaController", "index"),
+        "/vagas/tag={categoria}" => fn($categoria) => load("vagaController", "listVagasByCategory", $categoria),
+        "/vaga/{id}" => fn($params) => load("vagaController", "viewVagaDetails", $params),
 
         /* Autenticação */
         "/register" => fn() => load("AuthController", "register"),
@@ -88,14 +98,7 @@ $router = [
         "/c/candidaturas/{slug}" => fn($slug) => load("vagaController", "listVagaApplications", $slug),
        
         /* Rotas dos Candidatos */
-        "/u" => fn() => load("userController", "index"),
-        "/u/cv" => fn() => load("cvController", "index"),
-        "/u/candidaturas" => fn() => load("vagaController", "listVagaApplicationsByCandidate"),
-        "/u/cv/create" => fn() => load("cvController", "createCV"),
-        "/u/cv/edit" => fn() => load("cvController", "editCV"),
-        "/u/cv/share/{id_hash}" => fn($id_hash) => load("cvController", "viewCV", $id_hash),
-        "/u/cv/download" => fn() => load("cvController", "downloadCV"),
-        "/u/candidaturas/{slug}" => fn($slug) => load("vagaController", "viewApplicationDetails", $slug),
+       
 
         /* Rotas de Administradores */
 

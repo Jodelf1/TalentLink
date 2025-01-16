@@ -83,6 +83,7 @@
             // Altera o fundo imediatamente ao carregar a página
             changeBackground();
         </script>
+        <script src="/assets/js/log.js"></script>
         <script src="/assets/js/login.js"></script>
         <script src="/assets/js/colorchange.js"></script>
     </main>

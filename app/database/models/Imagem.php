@@ -16,30 +16,30 @@ class Imagem
         $this->db = Connection::connect();
     }
 
-    public function create($data)
+    public function create($data, $tabela)
     {
         try {
-            $stmt = $this->db->prepare("INSERT INTO {$this->table} (noticia_id, url) VALUES (:noticia_id, :url)");
+            $stmt = $this->db->prepare("INSERT INTO {$this->table} ({$tabela}, tipo_referencia, path) VALUES (:{$tabela}, :tipo_referencia, :path)");
             return $stmt->execute($data);
         } catch (PDOException $e) {
-            echo 'Insert failed: ' . $e->getMessage();
+            echo 'Falha na inserção da imagem: ' . $e->getMessage();
         }
     }
 
     public function update($data)
     {
         try {
-            $stmt = $this->db->prepare("UPDATE {$this->table} SET url = :url WHERE noticia_id = :noticia_id");
+            $stmt = $this->db->prepare("UPDATE {$this->table} SET url = :url WHERE  {$refType} = :id");
             return $stmt->execute($data);
         } catch (PDOException $e) {
             echo 'Insert failed: ' . $e->getMessage();
         }
     }
 
-    public function find($id)
+    public function find($id, $refType)
     {
         try {
-            $stmt = $this->db->prepare("SELECT * FROM {$this->table} WHERE noticia_id = :id");
+            $stmt = $this->db->prepare("SELECT * FROM {$this->table} WHERE {$refType} = :id");
             $stmt->execute(['id' => $id]);
             return $stmt->fetch();
         } catch (PDOException $e) {
@@ -50,7 +50,7 @@ class Imagem
     public function delete($id)
     {
         try {
-            $stmt = $this->db->prepare("DELETE FROM {$this->table} WHERE noticia_id = :id");
+            $stmt = $this->db->prepare("DELETE FROM {$this->table} WHERE {$refType} = :id");
             return $stmt->execute(['id' => $id]);
         } catch (PDOException $e) {
             echo 'Insert failed: ' . $e->getMessage();

@@ -23,8 +23,8 @@ class Vaga{
         }
 
         try {
-            $sql = "INSERT INTO vagas (titulo, descricao, empresa_id, localizacao, salario_min, data_expiracao, status, categoria_id) 
-                    VALUES (:titulo, :descricao, :empresaId, :localizacao, :salario_min, :data_expiracao, :status, :categoria)";
+            $sql = "INSERT INTO vagas (titulo, descricao, empresa_id, localizacao, data_expiracao, status, categoria_id, ref) 
+                    VALUES (:titulo, :descricao, :empresaId, :localizacao, :data_expiracao, :status, :categoria, :ref)";
 
             $stmt = $this->pdo->prepare($sql);
             return $stmt->execute($data);
@@ -85,7 +85,22 @@ class Vaga{
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            echo 'Erro ao listar as vagas por categoria: ' . $e->getMessage();
+            echo 'Erro ao listar as vagas por empresa: ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    
+
+    public function findVagaByRef($ref){
+        try {
+            $sql = "SELECT * FROM vagas WHERE ref = :ref";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':ref', $ref);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        } catch (PDOException $e) {
+            echo 'Erro ao listar a vagas por referência ' . $e->getMessage();
             return false;
         }
     }

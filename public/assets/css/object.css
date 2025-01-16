@@ -84,7 +84,7 @@
     border-radius: 50%;
 }
 
-.user-card{
+/*.user-card{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -93,25 +93,11 @@
     border-radius: 0.9rem;
     width: 100%;
     color: var(--white-color);
-}
+}*/
 .candidato-card{
     background-color: var(--bege-color);
 }
-.user-card img{
-    width: 5rem;
-    height: 5rem;
-    object-fit: cover;
-    border-radius: 50%;
-}
 
-.user-card h1{
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-.user-card p{
-    font-size: 1rem;
-    font-weight: 400;
-}
 
 .sidebar-link{
     padding: 1.5rem 3rem;
@@ -288,6 +274,30 @@
     background-color: #D4EDDA;
     color: #155724;
     border: 0.1rem solid #C3E6CB;
+}
+
+.invalid-field {
+    border: 2px solid red;
+    outline: none;
+}
+
+.invalid-field:focus {
+    box-shadow: 0 0 5px red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* VAGAS */
+
+.vaga-empresa-card{
+    padding: 1rem;
+    background-color: var(--background-color);
+
 }
 
 

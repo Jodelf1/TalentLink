@@ -3,10 +3,13 @@
 <section class="container">
     <h1 class="section-title">Publicar Vaga</h1>
     <form action="/c/create/vaga" method="POST" class="create-form flex row" enctype="multipart/form-data">
-        <section>
+        <section class="flex col">
             <section class="add_image" id="imagem">
                 <img src="/assets/img/profile-example.jpg" alt="" id="foto">
-                <input type="file" id="foto_capa" class="off" name="foto_capa" accept="image/*" required>
+                <input type="file" id="foto_capa" class="off" name="foto_capa" accept="image/*">
+            </section>
+            <section class="information-log" id="log-container">
+                        
             </section>
         </section>
         <section>
@@ -51,3 +54,5 @@
     </form>
 </section>
 <script src="/assets/js/foto.js"></script>
+<script src="/assets/js/log.js"></script>
+<script src="/assets/js/registroVaga.js"></script>
