@@ -3,7 +3,8 @@
     font-size: 1.3rem;
     color: var(--white-color);
     background-color: var(--primary-color);
-    border-radius: 0.5rem;
+    border: none;
+    border-radius: 0.6rem;
     font-weight: 600;
     transition: 0.3s;
 }
@@ -28,6 +29,16 @@
     color: var(--white-color);
     transition: 0.3s;
     border: solid 0.3rem var(--sec-color);
+}
+
+
+.normal-link{
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.normal-link:hover{
+    text-decoration: underline;
 }
 
 .title{
@@ -73,7 +84,7 @@
     border-radius: 50%;
 }
 
-.user-card{
+/*.user-card{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,25 +93,11 @@
     border-radius: 0.9rem;
     width: 100%;
     color: var(--white-color);
-}
+}*/
 .candidato-card{
     background-color: var(--bege-color);
 }
-.user-card img{
-    width: 5rem;
-    height: 5rem;
-    object-fit: cover;
-    border-radius: 50%;
-}
 
-.user-card h1{
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-.user-card p{
-    font-size: 1rem;
-    font-weight: 400;
-}
 
 .sidebar-link{
     padding: 1.5rem 3rem;
@@ -193,7 +190,6 @@
 /* EMPRESAS*/
 .action-card-container{
     gap: 2rem;
-    justify-content: center;
 }
 
 .action-card{
@@ -201,13 +197,109 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
-    padding: 1rem 2rem;
+    padding: 3rem;
     border-radius: 0.6rem;
-    color: var(--white-color);
+    color: #fff;
     width: 24rem;
     height: 24rem;
     background-color: var(--primary-color);
 }
+.action-card:hover{
+    background: var(--sec-color);
+    transition: 0.6s;
+}
+
+.action-card img{
+    width: 10rem;
+}
+
+/* COMPANY HEADER & COMPANY SIDEBAR*/
+
+.company-header .user-card{
+    width: 25rem;
+    color: var(--black-color);
+    background: var(--background-color);
+    padding: 1rem;
+}
+
+.company-sidebar .sidebar-link{
+    color: var(--white-color);
+    background: none;
+    border-radius: 0;
+    width: 100%;
+}
+
+.company-sidebar .sidebar-link.ativo{
+    border-left: 1rem solid var(--primary-color);
+}
+
+.company-sidebar .sidebar-link:hover{
+    border-left: 1rem solid var(--background-color);
+    width: 100%;
+}
+
+.company-sidebar .log-out-button{
+    color: var(--white-color);
+    border: solid 0.1rem var(--white-color);
+}
+
+/* LOGIN AND REGISTER*/
+
+.log-section{
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+}
+
+.log-section P{
+    font-size: 1.3rem;
+}
+
+.log-section img{
+    width: 6rem;
+}
+
+.error-log{
+    background-color: #F8D7DA;
+    color: #721C24;
+    border: 0.1rem solid #F5C6CB;
+}
+
+.info-log{
+    background-color: #D1ECF1;
+    color: #0C5460;
+    border: 0.1rem solid #BEE5EB;
+}
+
+.sucess-log{
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 0.1rem solid #C3E6CB;
+}
+
+.invalid-field {
+    border: 2px solid red;
+    outline: none;
+}
+
+.invalid-field:focus {
+    box-shadow: 0 0 5px red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* VAGAS */
+
+.vaga-empresa-card{
+    padding: 1rem;
+    background-color: var(--background-color);
+
+}
+
 
 @media screen and (max-width: 768px) {
     .title{

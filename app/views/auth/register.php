@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talent Link - Criar Conta</title>
+    <title>Talent Link | Criar Conta</title>
 </head>
 <body>
 

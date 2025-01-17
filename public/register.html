@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | TalentLink</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Style -->
+
+    <link rel="stylesheet" href="assets/css/root.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/MediaQ.css" />
+    <link rel="stylesheet" href="assets/css/object.css" />
+</head>
+
+<body class="light-mode">
+    <main class="main-login">
+        <section class="login-container">
+            <section class="login-form-container flex col a-center j-between">
+                <img src="./assets/img/logo.png" alt="" />
+                <section class="login-content flex col">
+                    <div class="step active" id="step1">
+                        <section>
+                            <h1 class="acess-title">Selecione o tipo de conta...</h1>
+                        </section>
+                        <div class="buttons">
+                            <a onclick="selectAccountType('candidato')" class="button">Candidato</a>
+                            <a onclick="selectAccountType('empresa')" class="button">Empresa</a>
+                            <a onclick="selectAccountType('formador')" class="button">Formador</a>
+                        </div>
+                        <button class="btn" onclick="goToNextStep()">Avançar</button>
+                    </div>
+
+                    <div class="step" id="step2">
+                        <h2>Insira os dados</h2>
+                        <form id="registrationForm">
+                            <input type="hidden" name="account_type" id="accountType" />
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Senha</label>
+                                <input type="password" id="password" name="password" required />
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <section class="information-log"></section>
+                </section>
+                <p>
+                    Já tem uma conta?
+                    <a href="/register" class="normal-link">Iniciar Sessão</a>
+                </p>
+            </section>
+            <section class="photo-login-section relative" id="photo-login-section">
+                <a class="back-link absolute" href="/">Voltar ao website</a>
+                <section class="register-information-section" id="register-information-section">
+
+                </section>
+            </section>
+        </section>
+
+
+        <script>
+
+            function goToNextStep() {
+                if (!selectedAccountType) {
+                    alert("Por favor, selecione um tipo de conta.");
+                    return;
+                }
+
+                document.getElementById("step1").classList.remove("active");
+                document.getElementById("step2").classList.add("active");
+            }
+        </script>
+
+        <script>
+            function selectAccountType(type) {
+                selectedAccountType = type;
+                document.getElementById('accountType').value = type;
+
+                // Alterar o background dinamicamente
+
+                const section = document.getElementById("register-information-section");
+                const sectionParent = document.getElementById("photo-login-section");
+                sectionParent.className = `photo-login-section relative ${type}`;
+
+                switch (type) {
+                    case 'formador':
+                        section.innerHTML = `
+                <h2>Cadastro para Formadores</h2>
+                <p>Este é um cadastro para administradores do sistema.</p>`;
+                        break;
+                    case 'empresa':
+                        section.innerHTML = `
+                <h2>Cadastro para Empresas</h2>
+                <p>Preencha o formulário para registrar sua empresa.</p>`;
+                        break;
+                    case 'candidato':
+                        section.innerHTML = `
+                <h2>Cadastro para Candidatos</h2>
+                <p>Complete seu perfil para se candidatar às vagas.</p>`;
+                        break;
+                }
+            }
+
+        </script>
+    </main>
+</body>
+
+</html>

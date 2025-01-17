@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent-Link - Página inicial</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Style -->
+
+    <link rel="stylesheet" href="assets/css/root.css">
+    <link rel="stylesheet" href="assets/css/newstyle.css">
+    <link rel="stylesheet" href="assets/css/MediaQ.css">
+    <link rel="stylesheet" href="assets/css/object.css">
+</head>
+
+<body class="light-mode index-body">
+    <section class="sidebar flex col ">
+        <section class="logo">
+            <img src="assets/img/logo.png" alt="Logo">
+        </section>
+        <a href="" class="user-card">
+            <img src="assets/img/profile-example.jpg" alt="" class="user-img">
+            <section class="user-info flex col">
+                <h1 class="user-name">Nome do candidato</h1>
+                <p>Meu CV</p>
+            </section>
+        </a>
+
+        <nav class="sidebar-menu">
+            <ul class="flex col">
+                <a href="" class="sidebar-link ativo"><i class="fa-solid fa-house"></i> Página inicial</a>
+                <a href="" class="sidebar-link"><i class="fa-solid fa-briefcase"></i> Vagas</a>
+                <a href="" class="sidebar-link"><i class="fa-solid fa-book-open"></i> Formações</a>
+                <a href="" class="sidebar-link"><i class="fa-solid fa-tags"></i> Categorias</a>
+                <a href="" class="sidebar-link"><i class="fa-solid fa-gear"></i> Configurações</a>
+            </ul>
+        </nav>
+        <p>developed by <a href="https://Marimbaz.com">Marimbaz</a></p>
+    </section>
+    <section class="mainContent">
+        <header class="flex row a-center">
+            <form action="" class="search-form flex row a-center">
+                <section class="search-input flex row">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" name="search" id="search"
+                        placeholder="Pesquisar vagas, categorias, formações...">
+                </section>
+                <button type="submit">Procurar</button>
+            </form>
+        </header>
+        <main>
+            <section class="vagas-formacoes-container flex col">
+                <div class="vaga-card">
+                    <p class="date-vaga">Hoje</p>
+                    <section class="company-data-container flex row a-center">
+                        <img src="./assets/img/sonangolLogo.jpeg" alt="" class="company-icon">
+                        <section class="company-data">
+                            <p class="company-name">Nome da empresa</p>
+                            <p class="recomendation-info">O seu perfil se encaixa com esta vaga</p>
+                        </section>
+                    </section>
+                    <section class="vaga-information">
+                        <a href="" class="vaga-title">Precisa-se de um Contabilista!</a>
+                        <p class="vaga-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quis
+                            assumenda eaque enim, a totam. Unde eos, cum veritatis eligendi amet minima omnis! Nihil,
+                            ducimus! Ipsam eius quia eligendi perspiciatis.</p>
+                        <p class="vaga-details"><i class="fa-solid fa-business-time"></i> Integral | <i
+                                class="fa-solid fa-location-dot"></i> Luanda, Talatona</p>
+                        <section class="flex row a-center vaga-application-area">
+                            <a href="#" class="btn">Candidatar-se</a>
+                            <p class="info">32 Pessoas já se candidataram</p>
+                        </section>
+                    </section>
+                </div>
+
+                <div class="vaga-card">
+                    <p class="date-vaga">Hoje</p>
+                    <section class="company-data-container flex row a-center">
+                        <img src="./assets/img/sonangolLogo.jpeg" alt="" class="company-icon">
+                        <section class="company-data">
+                            <p class="company-name">Nome da empresa</p>
+                            <p class="recomendation-info">O seu perfil se encaixa com esta vaga</p>
+                        </section>
+                    </section>
+                    <section class="vaga-information">
+                        <a href="" class="vaga-title">Vaga para Desenvolvedor de Software</a>
+                        <p class="vaga-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quis
+                            assumenda eaque enim, a totam. Unde eos, cum veritatis eligendi amet minima omnis! Nihil,
+                            ducimus! Ipsam eius quia eligendi perspiciatis.</p>
+                        <p class="vaga-details"><i class="fa-solid fa-business-time"></i> Integral | <i
+                                class="fa-solid fa-location-dot"></i> Luanda, Talatona</p>
+                        <section class="flex row a-center vaga-application-area">
+                            <a href="#" class="btn">Candidatar-se</a>
+                            <p class="info">32 Pessoas já se candidataram</p>
+                        </section>
+                    </section>
+                </div>
+    
+                <!-- Card 2 -->
+                <div class="vaga-card">
+                    <h3>Nome do formador</h3>
+                    <p>O seu perfil se encaixa com esta vaga</p>
+                    <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                    <img src="../public/assets/img/hero-image.png" alt="Imagem do formador">
+                    <p class="info">32 Pessoas já se candidataram</p>
+                    <a href="#" class="btn">Candidatar-se</a>
+                </div>
+    
+                <!-- Card 3 -->
+                <div class="vaga-card">
+                    <h3>Nome do formador</h3>
+                    <p>O seu perfil se encaixa com esta vaga</p>
+                    <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                    <img src="../public/assets/img/hero-image.png" alt="Imagem do formador">
+                    <p class="info">32 Pessoas já se candidataram</p>
+                    <a href="#" class="btn">Candidatar-se</a>
+                </div>
+    
+    
+                <section>
+    
+                    <div class="container" style="background-color:#00bfa5 ;">
+                        <h1 class="section-title">See Webinars and Courses</h1>
+                        <div class="cards flex">
+                            <!-- Cards 1 -->
+                            <div class="vaga-card">
+                                <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                                <img src="../public/assets/img/hero-image.png" alt="Imagem do evento">
+                                <div class="card-footer">
+                                    <span class="Web_Date">29/12/2024</span>
+                                    <a href="#" class="btn">Se inscrever</a>
+                                </div>
+                            </div>
+    
+                            <!-- Card 2 -->
+                            <div class="vaga-card">
+                                <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                                <img src="../public/assets/img/hero-image.png" alt="Imagem do evento">
+                                <div class="card-footer">
+                                    <span class="Web_Date">29/12/2024</span>
+                                    <a href="#" class="btn">Se inscrever</a>
+                                </div>
+                            </div>
+    
+                            <!-- Card 3 -->
+                            <div class="vaga-card">
+                                <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                                <img src="../public/assets/img/hero-image.png" alt="Imagem do evento">
+                                <div class="card-footer">
+                                    <span class="Web_Date">29/12/2024</span>
+                                    <a href="#" class="btn">Se inscrever</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </section>
+    
+                <section>
+    
+                    <div class="container">
+                        <h1 class="section-title">Categorias</h1>
+                        <p class="Web_Date">Ver vagas por categorias</p>
+                        <div class="cards flex">
+                            <div class="vaga-card">
+                                <img src="../public/assets/img/hero-image.png" alt="Categoria">
+                                <h3>Categoria Name</h3>
+                                <p>Categoria profissões </p>
+                            </div>
+                            <div class="vaga-card">
+                                <img src="../public/assets/img/hero-image.png" alt="Categoria">
+                                <h3>Categoria Name</h3>
+                                <p>Categoria profissões </p>
+                            </div>
+                            <div class="vaga-card">
+                                <img src="../public/assets/img/hero-image.png" alt="Categoria">
+                                <h3>Categoria Name</h3>
+                                <p>Categoria profissões </p>
+                            </div>
+                            <div class="vaga-card">
+                                <img src="../public/assets/img/hero-image.png" alt="Categoria">
+                                <h3>Categoria Name</h3>
+                                <p>Categoria profissões </p>
+                            </div>
+                            <div class="vaga-card">
+                                <img src="../public/assets/img/hero-image.png" alt="Categoria">
+                                <h3>Categoria Name</h3>
+                                <p>Categoria profissões </p>
+                            </div>
+                            <div class="vaga-card">
+                                <img src="../public/assets/img/hero-image.png" alt="Categoria">
+                                <h3>Categoria Name</h3>
+                                <p>Categoria profissões </p>
+                            </div>
+                            <div class="vaga-card">
+                                <img src="../public/assets/img/hero-image.png" alt="Categoria">
+                                <h3>Categoria Name</h3>
+                                <p>Categoria profissões </p>
+                            </div>
+                            <div class="vaga-card">
+                                <img src="../public/assets/img/hero-image.png" alt="Categoria">
+                                <h3>Categoria Name</h3>
+                                <p>Categoria profissões </p>
+                            </div>
+                            <div class="vaga-card">
+                                <img src="../public/assets/img/hero-image.png" alt="Categoria">
+                                <h3>Categoria Name</h3>
+                                <p>Categoria profissões </p>
+                            </div>
+    
+                        </div>
+                    </div>
+                </section>
+    
+                <section>
+                    <div class="container" style="background-color:#ffffff ;">
+    
+                        <h1 class="section-title"> Para Você</h1>
+                        <div class="cards flex">
+                            <!-- Card 1 -->
+                            <div class="vaga-card">
+                                <h3>Nome do formador</h3>
+                                <p>O seu perfil se encaixa com esta vaga</p>
+                                <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                                <img src="../public/assets/img/hero-image.png" alt="Imagem do formador">
+                                <p class="info">32 Pessoas já se candidataram</p>
+                                <a href="#" class="btn">Candidatar-se</a>
+                            </div>
+    
+                            <!-- Card 2 -->
+                            <div class="vaga-card">
+                                <h3>Nome do formador</h3>
+                                <p>O seu perfil se encaixa com esta vaga</p>
+                                <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                                <img src="../public/assets/img/hero-image.png" alt="Imagem do formador">
+                                <p class="info">32 Pessoas já se candidataram</p>
+                                <a href="#" class="btn">Candidatar-se</a>
+                            </div>
+    
+                            <!-- Card 3 -->
+                            <div class="vaga-card">
+                                <h3>Nome do formador</h3>
+                                <p>O seu perfil se encaixa com esta vaga</p>
+                                <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                                <img src="../public/assets/img/hero-image.png" alt="Imagem do formador">
+                                <p class="info">32 Pessoas já se candidataram</p>
+                                <a href="#" class="btn">Candidatar-se</a>
+                            </div>
+    
+                            <!-- Card 1 -->
+                            <div class="vaga-card">
+                                <h3>Nome do formador</h3>
+                                <p>O seu perfil se encaixa com esta vaga</p>
+                                <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                                <img src="../public/assets/img/hero-image.png" alt="Imagem do formador">
+                                <p class="info">32 Pessoas já se candidataram</p>
+                                <a href="#" class="btn">Candidatar-se</a>
+                            </div>
+    
+                            <!-- Card 2 -->
+                            <div class="vaga-card">
+                                <h3>Nome do formador</h3>
+                                <p>O seu perfil se encaixa com esta vaga</p>
+                                <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                                <img src="../public/assets/img/hero-image.png" alt="Imagem do formador">
+                                <p class="info">32 Pessoas já se candidataram</p>
+                                <a href="#" class="btn">Candidatar-se</a>
+                            </div>
+    
+                            <!-- Card 3 -->
+                            <div class="vaga-card">
+                                <h3>Nome do formador</h3>
+                                <p>O seu perfil se encaixa com esta vaga</p>
+                                <h4 class="Web_Date">Webinar: Empresas inativas</h4>
+                                <img src="../public/assets/img/hero-image.png" alt="Imagem do formador">
+                                <p class="info">32 Pessoas já se candidataram</p>
+                                <a href="#" class="btn">Candidatar-se</a>
+                            </div>
+    
+                </section>    
+            </section>
+            <section class="information-container">
+                <div class="information-card">
+                    <h1 class="title-information">Alguma coisa</h1>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <h1>dna</h1>
+        </footer>
+    </section>
+
+
+
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>

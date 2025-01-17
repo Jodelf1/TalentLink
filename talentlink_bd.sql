@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31-Dez-2024 às 18:15
+-- Tempo de geração: 16-Jan-2025 às 22:02
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -75,7 +75,9 @@ CREATE TABLE `cv` (
 
 CREATE TABLE `imagens` (
   `id` int(11) NOT NULL,
-  `referencia_id` int(10) UNSIGNED NOT NULL,
+  `vaga_referencia_id` int(10) UNSIGNED DEFAULT NULL,
+  `formacao_referencia_id` int(10) UNSIGNED DEFAULT NULL,
+  `utilizador_referencia_id` int(10) UNSIGNED DEFAULT NULL,
   `tipo_referencia` enum('vaga','formacao','utilizador') NOT NULL,
   `path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -263,14 +265,6 @@ CREATE TABLE `phpauth_users` (
   `user_type` enum('candidato','empresa','formador','admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `phpauth_users`
---
-
-INSERT INTO `phpauth_users` (`id`, `email`, `password`, `isactive`, `dt`, `user_type`) VALUES
-(3, 'itzjoestar@proton.me', '$2y$10$9lGPRDVUywVqukIvgWF0f.kZxmu4Df6Bl3ZgNYkO/XyPYPVsYRds.', 0, '2024-12-31 17:25:01', 'candidato'),
-(4, 'jodelfimarimba@gmail.com', '$2y$10$V7qy2G2h/8FnDC2GrxOvTOBrutvx0.AUX4L1IxPthWX6FvibVrLtW', 0, '2024-12-31 17:27:32', 'empresa');
-
 -- --------------------------------------------------------
 
 --
@@ -283,14 +277,15 @@ CREATE TABLE `vagas` (
   `descricao` text NOT NULL,
   `empresa_id` int(10) UNSIGNED NOT NULL,
   `requisitos` text NOT NULL,
-  `localidade` varchar(255) NOT NULL,
+  `localizacao` varchar(255) NOT NULL,
   `salario_min` decimal(10,2) NOT NULL,
   `salario_max` decimal(10,2) NOT NULL,
   `data_expiracao` date NOT NULL,
   `status` enum('ativo','expirado','deletado') DEFAULT 'ativo',
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `categoria_id` int(11) NOT NULL
+  `categoria_id` int(11) NOT NULL,
+  `ref` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -340,7 +335,9 @@ ALTER TABLE `cv`
 --
 ALTER TABLE `imagens`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_imagens_formacoes` (`referencia_id`);
+  ADD KEY `fk_imagens_vagas` (`vaga_referencia_id`),
+  ADD KEY `fk_imagens_formacoes` (`formacao_referencia_id`),
+  ADD KEY `fk_imagens_utilizadores` (`utilizador_referencia_id`);
 
 --
 -- Índices para tabela `notificacoes`
@@ -449,7 +446,7 @@ ALTER TABLE `phpauth_config`
 -- AUTO_INCREMENT de tabela `phpauth_users`
 --
 ALTER TABLE `phpauth_users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `vagas`
@@ -484,9 +481,9 @@ ALTER TABLE `cv`
 -- Limitadores para a tabela `imagens`
 --
 ALTER TABLE `imagens`
-  ADD CONSTRAINT `fk_imagens_formacoes` FOREIGN KEY (`referencia_id`) REFERENCES `webinars_formacoes` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_imagens_utilizadores` FOREIGN KEY (`referencia_id`) REFERENCES `phpauth_users` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_imagens_vagas` FOREIGN KEY (`referencia_id`) REFERENCES `vagas` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_imagens_formacoes` FOREIGN KEY (`formacao_referencia_id`) REFERENCES `webinars_formacoes` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_imagens_utilizadores` FOREIGN KEY (`utilizador_referencia_id`) REFERENCES `phpauth_users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_imagens_vagas` FOREIGN KEY (`vaga_referencia_id`) REFERENCES `vagas` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `notificacoes`

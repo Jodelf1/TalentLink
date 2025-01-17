@@ -1,12 +1,20 @@
 <?php
 
 namespace app\Controllers;
+use app\Controllers\authController;
 
 class homeController
 {
+
+    public function __construct()
+    {
+        $this->auth = new authController(); 
+    }
+
     public function index()
     {
-        controller::view('index');
+       
+        controller::view('index');        
     }
 
     public function about()

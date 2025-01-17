@@ -18,6 +18,6 @@
         <li><strong>Telefone:</strong> <?php echo htmlspecialchars($perfil['telefone']); ?></li>
     </ul>
 
-    <a href="/empresas">Voltar para a lista de empresas</a>
+    <a href="/c">Voltar para a lista de empresas</a>
 </body>
 </html>

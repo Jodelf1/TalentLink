@@ -20,14 +20,17 @@
 
 
 body.light-mode{
-    --primary-color: #01B4AE;
-    --hover-button-color: #a1d0d8;
+    --primary-color: #0396c7;
     --secondary-color: #072F36;
-    --background-color: #EDFAF9;
+    --third-color:#026DA7 ;
+    --background-color: #ebfaff;
+    --hover-color: #d3eff5;
+
+
     --bege-color: #D4AE74;
 
 
-    --sec-color: #005d6d;
+    --sec-color: #026DA7;
     --black-color: #000000;
     --dark-color: #121212;
     --white-color: #FFFFFF;
@@ -40,16 +43,17 @@ body.light-mode{
 }
 
 body.dark-mode{
-    --primary-color: #02ded7;
-    --hover-button-color: #a1d0d8;
-    --secondary-color: #00c8c1;
-    --background-color: #072F36 ;
+    --primary-color: #0396c7;
+    --hover-button-color:#00c8c1;
+    --secondary-color: #a1d0d8;
+    --third-color:#37b9ff ;
+    --background-color: #151e2d;
     --bege-color: #D4AE74;
     --color: #f0f9f8;
 
     --sec-color: #005d6d;
     --black-color: #fff;
-    --dark-color: #121212;
+    --dark-color: #dddddd;
     --white-color: #151B23;
     --light-color: #ececec2f;
     --gray-color: #2E2F2F;
@@ -63,7 +67,7 @@ body.dark-mode{
     padding: 3rem;
     background: var(--white-color);
     margin: 0 2rem;
-    width: 97%;
+    width: 80%;
     border-radius: 0.6rem;
     display: flex;
     flex-direction: column;

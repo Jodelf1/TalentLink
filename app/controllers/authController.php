@@ -40,8 +40,17 @@ class authController
             $result = $this->auth->register($email, $password, $password_confirm, $data);
     
             if ($result['error']) {
-                echo $result['message'];  // Exibe a mensagem de erro
+                echo json_encode([
+                    'success' => false,
+                    'type' => "error",
+                    'msg' => "Houve um erro, tente novamente mais tarde!"
+                ]);  // Exibe a mensagem de erro
             } else {
+                echo json_encode([
+                    'success' => true,
+                    'type' => "sucess",
+                    'msg' => "Houve um erro, tente novamente mais tarde!"
+                ]);
                 $msg = 'Registro bem-sucedido! Verifique seu e-mail para ativar a conta.';
                 return Controller::view('auth/register', ['msg' => $msg]);
                 // Controller::view('admin/utilizadores/index', ['msg' => $msg, 'utilizadores' => $users]);
@@ -62,7 +71,7 @@ class authController
                 case 'empresa':
                     /*setcookie('user', $email, time() + 7 * 24 * 60 * 60, '/');
                     setcookie('user_type', 'empresa', time() + 7 * 24 * 60 * 60, '/');*/
-                    $destino = '/empresas';
+                    $destino = '/c';
                     break;
                 case 'candidato':
                     $destino = '/u';
@@ -82,18 +91,27 @@ class authController
     public function login()
     {
         //Função para fazer login
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+ 
+            /*if($this->auth->isative($email)){
+                echo json_encode([
+                    'success' => false,
+                    'type' => "info"
+                ]);
+            }*/
 
             $result = $this->auth->login($email, $password);
-            $_SESSION['error'] = 0;
-
+            
             if ($result['error']){
-                $_SESSION['error']++;
-                header('location: /login');
-                exit;
+
+                echo json_encode([
+                    'success' => false,
+                    'type' => "error",
+                    'message' => "Email ou senha inválidos (Verifique se os inseriu corretamente)"
+                ]);
+
             } else {
                 $utilizador = new Utilizador;
                 $acesso = $utilizador->findByEmail($email);
@@ -104,6 +122,7 @@ class authController
                     'user_type' => $acesso['user_type'],
                     'hash' => $result['hash']
                 ];
+
                 switch($acesso['user_type']) {
                     case 'admin':
                         $destino = '/admin';
@@ -111,23 +130,21 @@ class authController
                     case 'empresa':
                         /*setcookie('user', $email, time() + 7 * 24 * 60 * 60, '/');
                         setcookie('user_type', 'empresa', time() + 7 * 24 * 60 * 60, '/');*/
-                        $destino = '/empresas';
+                        $destino = '/c';
                         break;
                     case 'candidato':
-                        $destino = '/u';
+                        $destino = '/';
                         break;
                     case 'formador':
                         $destino = '/formador';
                         break;
                 }
 
-                $msg = 'Login bem-sucedido!';
-
-               // header('Location: /empresas');
-               // exit;
-
-                header("location: $destino");
-                exit;
+                echo json_encode([
+                    'success' => true,
+                    'destino' => $destino,
+                    'message' => "Login bem sucedido, redirecionando!"
+                ]);  
             }
         }
 
@@ -148,12 +165,70 @@ class authController
         //Função para verificar se o utilizador está logado
         return $this->auth->isLogged();
     }
-    protected function checkAuthentication()
+    public function checkAuthentication()
     {
         //Função para verificar se o utilizador está autenticado
         if (!isset($_SESSION['user'])) {
             header('Location: /login');
             exit();
+        }
+    }
+
+    public function redirect(){
+        if ($this->auth->isLogged()) {
+            switch($_SESSION['user']['user_type']) {
+                case 'admin':
+                    $destino = '/admin';
+                    break;
+                case 'empresa':
+                    $destino = '/c';
+                    break;
+                case 'candidato':
+                    $destino = '/';
+                    break;
+                case 'formador':
+                    $destino = '/formador';
+                    break;
+            }
+
+            header("location: $destino");
+            return 1;
+        }
+    }
+
+    public function protect($usertype)
+    {
+        if ($this->auth->isLogged()) {
+            if ($_SESSION['user']['user_type'] !== $usertype) {
+                switch ($_SESSION['user']['user_type']) {
+                    case 'admin':
+                        $destino = '/admin';
+                        break;
+                    case 'empresa':
+                        $destino = '/c';
+                        break;
+                    case 'candidato':
+                        $destino = '/';
+                        break;
+                    case 'formador':
+                        $destino = '/formador';
+                        break;
+                }
+
+                header("location: $destino");
+                exit;
+            }
+        } else {
+            header('Location: /login');
+            exit;
+        }
+    }
+
+    public function testActive(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        }else{
+            controller::view("test");
         }
     }
 
