@@ -33,4 +33,15 @@ class candidatura
         }
     }
 
+    public function createCandidatura($vagaId, $candidatoId){
+        try {
+            $stmt = $this->db->prepare("INSERT INTO {$this->table} (vaga_id, candidato_id) VALUES (:vaga_id, :candidato_id)");
+            $stmt->bindParam(':vaga_id', $vagaId);
+            $stmt->bindParam(':candidato_id', $candidatoId);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            echo 'Falha na inserção da imagem: ' . $e->getMessage();
+        }
+    }
+
 }

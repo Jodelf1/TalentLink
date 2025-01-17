@@ -5,7 +5,7 @@ namespace app\controllers;
 use app\database\models\Candidatura;
 use app\database\models\Auth;
 
-class CandidaturaController
+class candidaturaController
 {
     private $candidatura;
     private $auth;
@@ -17,7 +17,7 @@ class CandidaturaController
     }
 
 
-    public function create()
+    public function create($params)
     {
         if (!$this->auth->isLogged()) {
             header("Location: /login");
@@ -25,7 +25,8 @@ class CandidaturaController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $vagaId = $_POST['vaga_id'];
+            $vagaId = $params['id'];
+
             $candidatoId = $_SESSION['user']['id'];
 
             if ($this->candidatura->createCandidatura($vagaId, $candidatoId)) {
