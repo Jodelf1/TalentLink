@@ -112,6 +112,8 @@ $router = [
         "/formador/cursos" => fn() => load("formacaoController", "index"),
         "/formador/cursos/{slug}" => fn($slug) => load("formacaoController", "viewCursoDetails", $slug),
 
+        /* Rotas de candidaturas */
+        "/candidaturas" => fn() => load("CandidaturaController", "listByCandidato"),
 
 
     ],
@@ -146,6 +148,12 @@ $router = [
         "/formador/edit/formacao" => fn() => load("formacaoController", "editFormacao"),
         "/formador/delete/formacao" => fn() => load("formacaoController", "deleteFormacao"),
        
+         /* Rotas das candidaturas */
+        "/candidaturas/create" => fn() => load("CandidaturaController", "create"),
+        "/candidaturas/update/{id}" => fn($params) => load("CandidaturaController", "updateStatus", $params),
+        "/candidaturas/delete/{id}" => fn($params) => load("CandidaturaController", "delete", $params),
+
+        
 
 
     ]
