@@ -12,18 +12,16 @@ function formatarData($dataRecebida) {
     $diferenca = $dataAtual->diff($data); // Diferença entre as datas
 
     if ($diferenca->days == 0) {
-        return "hoje";
+        return "Hoje";
     } elseif ($diferenca->days == 1 && $diferenca->invert == 1) {
-        return "ontem";
-    } elseif ($diferenca->days == 1 && $diferenca->invert == 0) {
-        return "amanhã"; // Caso esteja lidando com datas futuras
+        return "Ontem"; // Caso esteja lidando com datas futuras
     } elseif ($diferenca->days < 30) {
-        return "há {$diferenca->days} dias";
+        return "Há {$diferenca->days} dias";
     } elseif ($diferenca->m < 12) {
-        return "há {$diferenca->m} meses";
+        return "Há {$diferenca->m} meses";
     } else {
         $anos = $diferenca->y;
-        return $anos === 1 ? "há 1 ano" : "há $anos anos";
+        return $anos === 1 ? "Há 1 ano" : "Há $anos anos";
     }
 }
 
@@ -45,12 +43,21 @@ class vagaController
 
         foreach ($vagas as $vaga) {
             //$categoriaFind = $this->tag->find($vaga['categoria_id']);
+
+            $url = $this->image->getImage($vaga['empresa_id'], "utilizador_referencia_id");
+
+            if(!$url){
+                $url = "/assets/img/user.png"; // Caso a imagem não exista, usar uma predefinida
+            }else{
+
+            }
+
             $dataPub = formatarData($vaga['created_at']);
             $pub = [
                     'vaga' => $vaga,
                     'nome_empresa' => $this->perfilEmpresa->obterPerfil($vaga['empresa_id'])['nome_empresa'],
                     'data' => $dataPub,//'categoria' => $categoriaFind,
-                    'img_empresa' => $this->image->getImage($vaga['id'], "vaga_referencia_id")->path,
+                    'img_empresa' => $url,
                     'n_candidaturas' => $this->application->countByVagaId($vaga['id'])
                 ];
                 array_push($data, $pub);
@@ -81,16 +88,8 @@ class vagaController
                 'categoria' => 1,
                 'ref' => hash('sha256', $titulo . $empresaId . date("Ymd"))
             ];
-
             
             if($this->vaga->create($data)){
-                $dataImg = [
-                    'imagem' => $_FILES['foto_capa'],
-                    'tipo_referencia' => "vaga",
-                    'vaga_referencia_id' => $this->vaga->findVagaByRef($data['ref'])['id'],
-                    'tabela' => "vaga_referencia_id"
-                ];
-                $this->image->create($dataImg);
                 $destino = "/c/vagas";
 
                 echo json_encode([
@@ -131,12 +130,19 @@ class vagaController
         foreach ($vagas as $vaga) {
             //$categoriaFind = $this->tag->find($vaga['categoria_id']);
             $dataPub = formatarData($vaga['created_at']);
+
+            $url = $this->image->getImage($vaga['empresa_id'], "utilizador_referencia_id")->path;
+
+            if(!$url){
+                $url = "/assets/img/user.png"; // Caso a imagem não exista, usar uma predefinida
+            }
+
             $pub = [
                     'vaga' => $vaga,
                     'nome_empresa' => $this->perfilEmpresa->obterPerfil($vaga['empresa_id'])['nome_empresa'],
                     'data' => $dataPub,
                     //'categoria' => $categoriaFind,
-                    'img_empresa' => $this->image->getImage($vaga['id'], "vaga_referencia_id")->path,
+                    'img_empresa' => $url,
                     'n_candidaturas' => $this->application->countByVagaId($vaga['id'])
                 ];
                 array_push($data, $pub);
@@ -157,7 +163,6 @@ class vagaController
             $pub = [
                     'vaga' => $vaga,
                     //'categoria' => $categoriaFind,
-                    'img' => $this->image->getImage($vaga['id'], "vaga_referencia_id")->path,
                     'n_candidaturas' => $this->application->countByVagaId($vaga['id'])
                 ];
                 array_push($data, $pub);
@@ -204,11 +209,20 @@ class vagaController
         // Se o perfil não existir, redireciona para uma página de erro ou lista de empresas
         if ($vaga) {
 
+            $url = $this->image->getImage($vaga['empresa_id'], "utilizador_referencia_id");
+
+            if(!$url){
+                $url = "/assets/img/user.png"; // Caso a imagem não exista, usar uma predefinida
+            }
+
+            $dataPub = formatarData($vaga['created_at']);
+
             $pub = [
                 'vaga' => $vaga,
                 'nome_empresa' => $this->perfilEmpresa->obterPerfil($vaga['empresa_id'])['nome_empresa'],
+                'data' => $dataPub,
                 //'categoria' => $categoriaFind,
-                'img' => $this->image->getImage($vaga['id'], "vaga_referencia_id")->path,
+                'img_empresa' => $url,
                 'n_candidaturas' => $this->application->countByVagaId($vaga['id'])
             ];
 
@@ -223,9 +237,37 @@ class vagaController
         //Função para visualizar detalhes de uma candidatura
     }
 
-    public function searchVaga($data)
+    public function searchVaga($params)
     {
         //Função para buscar vagas
+        $searchTerm = $params['titulo'];
+        $regiao = $params['regiao'];
+        $vagas = $this->vaga->search($searchTerm, $regiao);
+
+        $data = [];
+
+        foreach ($vagas as $vaga) {
+            //$categoriaFind = $this->tag->find($vaga['categoria_id']);
+            $dataPub = formatarData($vaga['created_at']);
+
+            $url = $this->image->getImage($vaga['empresa_id'], "utilizador_referencia_id");
+
+            if(!$url){
+                $url = "/assets/img/user.png"; // Caso a imagem não exista, usar uma predefinida
+            }
+
+            $pub = [
+                    'vaga' => $vaga,
+                    'nome_empresa' => $this->perfilEmpresa->obterPerfil($vaga['empresa_id'])['nome_empresa'],
+                    'data' => $dataPub,
+                    //'categoria' => $categoriaFind,
+                    'img_empresa' => $url,
+                    'n_candidaturas' => $this->application->countByVagaId($vaga['id'])
+                ];
+                array_push($data, $pub);
+        }
+
+        controller::view('vagasearch', ['vagas' => $data, 'pesquisa' => $searchTerm, 'regiao' => $regiao]);
     }
 
 }

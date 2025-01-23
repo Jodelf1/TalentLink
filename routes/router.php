@@ -82,6 +82,7 @@ $router = [
         "/vagas/tag={categoria}" => fn($categoria) => load("vagaController", "listVagasByCategory", $categoria),
         "/vaga/{id}" => fn($params) => load("vagaController", "viewVagaDetails", $params),
 
+
         /* Autenticação */
         "/register" => fn() => load("AuthController", "register"),
         "/login" => fn() => load("AuthController", "loginForm"),
@@ -119,6 +120,13 @@ $router = [
         /* Rotas de candidaturas */
         
 
+        "/vagas/search" => function ($params) {
+            if (isset($_GET['search'])||isset($_GET['location'])) {
+                $search = htmlspecialchars($_GET['search']);
+                $location = htmlspecialchars($_GET['location']);
+                load("vagaController", "searchVaga", ['titulo' => $search, 'regiao' => $location]);
+            }
+        },
     ],
 
     'POST' => [

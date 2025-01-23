@@ -111,15 +111,12 @@
 }
 
 .sidebar-link.ativo{
-    width: 95%;
     background-color: var(--primary-color);
     color: var(--white-color);
 }
 
 .sidebar-link:hover{
-    background-color: var(--hover-button-color);
-    color: var(--white-color);
-    width: 97%;
+    background-color: var(--hover-color);
     transition: 0.3s;
 }
 
@@ -297,7 +294,10 @@
 .vaga-empresa-card{
     padding: 1rem;
     background-color: var(--background-color);
-
+    border-radius: 0.6rem;
+}
+.vaga-empresa-card .vaga-title{
+    font-size: 2rem;
 }
 
 

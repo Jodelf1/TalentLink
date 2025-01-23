@@ -4,9 +4,9 @@ $this->layout('layouts/base', ['title' => 'Home']);
 
 <section class="vagas-formacoes-container flex col">
     <div class="vaga-card">
-        <p class="date-vaga">Hoje</p>
+        <p class="date-vaga"><?= $vaga['data']?></p>
         <section class="company-data-container flex row a-center">
-            <img src="/assets/img/sonangolLogo.jpeg" alt="" class="company-icon">
+            <img src="<?= $vaga['img_empresa']?>" alt="" class="company-icon">
             <section class="company-data">
                 <p class="company-name"><?= $vaga['nome_empresa']?></p>
                 <p class="recomendation-info"></p>
