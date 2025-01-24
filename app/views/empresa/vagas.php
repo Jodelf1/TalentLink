@@ -12,9 +12,8 @@
     <section class="vaga-empresa-area flex ">
         <?php foreach($vagas as $vaga):?>
             <section class="vaga-empresa-card col flex">
-                <img src="<?= $vaga['img']?>" class="capa-image">
+                <h1 class="vaga-title"><?= $vaga['vaga']['titulo'] ?></h1>
                 <section class="description">
-                    <h1><strong>Cargo para: </strong><?= $vaga['vaga']['titulo'] ?></h1>
                 </section>
                 <a href="/c/vaga/<?= $vaga['vaga']['id'] ?>">Detalhes</a>
                 <p><?= $vaga['n_candidaturas']?> Candidaturas recebidas</p><a href=""></a>

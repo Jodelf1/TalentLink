@@ -8,13 +8,19 @@
         <section class="logo">
             <img src="/assets/img/logo.png" alt="Logo">
         </section>
-        <a href="" class="user-card">
+        <section class="user-card relative" id="user-card">
             <img src="/assets/img/profile-example.jpg" alt="" class="user-img">
             <section class="user-info flex col">
                 <h1 class="user-name">Nome do candidato</h1>
                 <p>Meu CV</p>
             </section>
-        </a>
+            <nav id="user-options-container" class="user-options-container flex col">
+                <a href="/cv" class="user-option">Meu CV</a>
+                <a href="/config" class="user-option">Configurações</a>
+                <a href="/logout" class="user-option">Sair</a>
+            </nav>
+        </section>
+        
 
         <nav class="sidebar-menu">
             <ul class="flex col">
@@ -22,12 +28,11 @@
                 <a href="/vagas" class="sidebar-link <?= $currentUrl == '/vagas' ? 'ativo' : '' ?> "><i class="fa-solid fa-briefcase"></i> Vagas</a>
                 <a href="/formacoes" class="sidebar-link <?= $currentUrl == '/formacaoes' ? 'ativo' : '' ?> ""><i class="fa-solid fa-book-open"></i> Formações</a>
                 <a href="/tag" class="sidebar-link <?= $currentUrl == '/tag' ? 'ativo' : '' ?> ""><i class="fa-solid fa-tags"></i> Categorias</a>
-                <a href="/config" class="sidebar-link <?= $currentUrl == '/config' ? 'ativo' : '' ?> ""><i class="fa-solid fa-gear"></i> Configurações</a>
             </ul>
         </nav>
         <p>developed by <a href="https://Marimbaz.com">Marimbaz</a></p>
     </section>
-
+    <script src="/assets/js/user.js"></script>
 <?php }else{ ?>
 
 <section class="sidebar flex col">

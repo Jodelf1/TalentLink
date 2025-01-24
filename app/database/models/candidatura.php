@@ -43,5 +43,4 @@ class candidatura
             echo 'Falha na inserção da imagem: ' . $e->getMessage();
         }
     }
-
 }

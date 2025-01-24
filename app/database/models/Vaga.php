@@ -105,5 +105,36 @@ class Vaga{
         }
     }
 
+    public function search($searchTerm, $regiao)
+    {
+        try {
+            if ($searchTerm && $regiao) {
+                $sql = "SELECT * FROM vagas WHERE titulo LIKE :titulo AND localizacao LIKE :localizacao";
+                $stmt = $this->pdo->prepare($sql);
+                $searchTerm = "%{$searchTerm}%";
+                $regiao = "%{$regiao}%";
+                $stmt->bindParam(':titulo', $searchTerm);
+                $stmt->bindParam(':localizacao', $regiao);
+            } elseif ($searchTerm) {
+                $sql = "SELECT * FROM vagas WHERE titulo LIKE :titulo";
+                $stmt = $this->pdo->prepare($sql);
+                $searchTerm = "%{$searchTerm}%";
+                $stmt->bindParam(':titulo', $searchTerm);
+            } elseif ($regiao) {
+                $sql = "SELECT * FROM vagas WHERE localizacao LIKE :localizacao";
+                $stmt = $this->pdo->prepare($sql);
+                $regiao = "%{$regiao}%";
+                $stmt->bindParam(':localizacao', $regiao);
+            } else {
+                return [];
+            }
+
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Query failed: ' . $e->getMessage();
+            return false;
+        }
+    }
     
 }

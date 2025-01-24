@@ -1,6 +1,9 @@
 <?php $this->layout('layouts/empresa', ['title' => 'DashBoard']) ?>
 
 <section class="container">
+    <section>
+        
+    </section>
     <ul>
         <li><strong>Nome da Empresa:</strong> <?php echo htmlspecialchars($perfil['nome_empresa']); ?></li>
         <li><strong>Descrição:</strong> <?php echo nl2br(htmlspecialchars($perfil['descricao'])); ?></li>

@@ -10,10 +10,7 @@ const validateField = (field) => {
     let message = "";
 
     // Validações por tipo de campo
-    if (field.id === "foto_capa" && !field.files[0]) {
-        isValid = false;
-        message = "Por favor, selecione uma imagem de capa.";
-    } else if (field.id === "titulo" && field.value.trim() === "") {
+    if (field.id === "titulo" && field.value.trim() === "") {
         isValid = false;
         message = "O título da vaga é obrigatório.";
     } else if (field.id === "descricao" && field.value.trim() === "") {
