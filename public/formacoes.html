@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent-Link - Página inicial</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Sen:wght@400..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Style -->
+
+    <link rel="stylesheet" href="assets/css/root.css">
+    <link rel="stylesheet" href="assets/css/newstyle.css">
+    <link rel="stylesheet" href="assets/css/MediaQ.css">
+    <link rel="stylesheet" href="assets/css/object.css">
+</head>
+
+<body class="light-mode index-body">
+    <section class="sidebar flex col">
+        <section class="logo">
+            <img src="assets/img/logo.png" alt="Logo">
+        </section>
+
+        <section class="acess-links flex col">
+            <p>Registre-se ou inicie sessão para ter acesso a tudo que a TalentLink pode oferecer.</p>
+            <a href="/register" class="btn">Registar-se</a>
+            <a href="/login" class="btn login">Iniciar Sessão</a>
+        </section>
+
+        <nav class="sidebar-menu">
+            <ul class="flex col">
+                <a href="/" class="sidebar-link"><i class="fa-solid fa-house"></i> Página inicial</a>
+                <a href="/vagas" class="sidebar-link"><i class="fa-solid fa-briefcase"></i> Vagas</a>
+                <a href="/formacoes" class="sidebar-link ativo"><i class="fa-solid fa-book-open"></i> Formações</a>
+                <a href="/tag" class="sidebar-link"><i class="fa-solid fa-tags"></i> Categorias</a>
+                <a href="/config" class="sidebar-link"><i class="fa-solid fa-gear"></i> Configurações</a>
+            </ul>
+        </nav>
+
+        <section class="social-media flex col">
+            <p>Siga-nos nas redes sociais</p>
+            <section class="social-media-icons flex row">
+                <a href="#" class="social-media-icon"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-media-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-media-icon"><i class="fa-brands fa-twitter"></i></a>
+            </section>
+        </section>
+        <section class="more-links">
+            <a href="">Sobre a TalentLink</a> |
+            <a href="">Contactos</a>
+        </section>
+        <section class="sidebar-footer">
+            <p>© 2025 TalentLink</p>
+            <p>Developed by <a href="https://marimbaz.com">Marimba'z</a></p>
+        </section>
+    </section>
+    <section class="mainContent">
+        <header class="flex row a-center">
+            <form action="/vagas/search" class="search-form flex row a-center" method="get">
+                <section class="search-input flex row">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" name="search" id="search"
+                        placeholder="Pesquisar vagas, categorias, formações...">
+                </section>
+                |
+                <section class="search-select flex row">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" name="location" id="location" placeholder="Na Região...">
+                </section>
+                <button type="submit">Procurar</button>
+            </form>
+        </header>
+        <main>
+            <section class="vagas-formacoes-container flex col">
+
+                <div class="formacao-card">
+                    <img src="./assets/img/upload/5ca2f70823e6bb6b26ac03dc57392d13e0c27ab05b20d9aa1679f61629e8521b.jpg"
+                        class="formacao-img" alt="">
+
+                    <section class="formacao-content flex col j-between">
+                        <section>
+                            <a href="/formacao/" class="formacao-title">Formação de Begas</a>
+                            <section class="posted-by flex row a-center">
+                                <p> publicado por</p>
+                                <a href="#" class="formador-link flex row a-center">
+                                    <img src="./assets/img/profile-example.jpg" alt="" class="formador-icon">
+                                    <p>Nome do formador</p>
+                                </a> •
+                                <p>Especialidade</p>
+                            </section>
+                        </section>
+
+                        <p class="formacao-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque,
+                            exercitationem. Odit eveniet distinctio debitis temporibus ab dolor neque, ducimus
+                            architecto, nihil reprehenderit eos dolore nulla omnis accusamus doloremque fugiat error.
+                        </p>
+                        <p class="formacao-details"><i class="fa-solid fa-location-dot"></i> Na casa do teu pai | <i class="fa-solid fa-calendar-days"></i> 23 de Dezembro de 2025 | </p>
+                        <section class="flex row a-center formacao-application-area">
+                            <a href="" class="btn" target="_blank">Acessar Formação</a>
+                            <p class="info">14 Pessoas já confirmaram a presença</p>
+                        </section>
+
+                    </section>
+                </div>
+
+            </section>
+            <section class="information-container">
+                <div class="information-card">
+                    <h1 class="title-information">Descubra mais formações e oportunidades</h1>
+                </div>
+            </section>
+        </main>
+
+    </section>

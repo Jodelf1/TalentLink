@@ -63,7 +63,9 @@ class vagaController
                 array_push($data, $pub);
         }
 
-        controller::view('vaga', ['vagas' => $data]);
+        $numero = count($data);
+
+        controller::view('vaga', ['vagas' => $data, 'numero' => $numero]);
     }
 
     public function create($data)

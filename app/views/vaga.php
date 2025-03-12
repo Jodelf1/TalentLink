@@ -3,6 +3,8 @@ $this->layout('layouts/base', ['title' => 'Home']);
 ?>
 
 <section class="vagas-formacoes-container flex col">
+    <h1 class="section-title">A mostrar <?= $numero ?> vagas</h1>
+    
     <?php foreach ($vagas as $vaga):
          $conteudoLimitado = substr($vaga['vaga']['descricao'], 0, 300) . '...';
         ?>

@@ -20,10 +20,10 @@
 
 
 body.light-mode{
-    --primary-color: #0396c7;
-    --secondary-color: #072F36;
+    --primary-color: #0396C7;
+    --secondary-color: #04007A;
     --third-color:#026DA7 ;
-    --background-color: #ebfaff;
+    --background-color: #e7f9ff;
     --hover-color: #bee8f0;
 
 
@@ -159,4 +159,11 @@ p{
 
 .absolute{
     position: absolute;
+}
+
+.gap-1{
+    gap: 1rem;
+}
+.gap-2{
+    gap: 2rem;
 }

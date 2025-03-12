@@ -1,0 +1,133 @@
+/* Desktop */
+@media screen and (min-width: 769px) {
+    .hide-desktop {
+        display: none;
+        overflow: hidden;
+    }
+
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+
+    /*Root*/
+    .hide-mobile {
+        display: none;
+        overflow: hidden;
+    }
+
+    /*Menu*/
+    
+    .logo-mobile {
+        width: 20rem;
+    }
+
+    /*Hero */
+
+    .hero{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+        padding: 8rem 3.5rem;
+    }
+
+    .hero-search-form{
+        flex-direction: column;
+        width: 100%;
+        border: none;
+        overflow: initial;
+    }
+
+    .search-input, .search-select{
+        width: 100%;
+        border: 0.2rem solid var(--primary-color);
+    }
+
+    .search-input{
+        border-radius: 0.6rem 0.6rem 0 0;
+    }
+    
+    .search-select{
+        border-radius:0 0 0.6rem 0.6rem ;
+        border-top: none;
+        width: 100%;
+    }
+
+    .hero-search-form button{
+        margin-top: 2rem;
+        border-radius: 0.6rem;
+    }
+
+    /*User Types*/
+
+    .user-types-container{
+        padding: 3.5rem;
+        flex-direction: column;
+    }
+
+    .user-types-container h1{
+        font-size: 2.5rem;
+        width: 100%;
+    }
+
+    .user-types{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /*Saber Mais*/
+
+    .saber-mais-section {
+        padding: 3.5rem;
+        flex-direction: column;
+    }
+
+    .saber-mais-section .sobre-text{
+        width: 100%;
+    }
+
+    .saber-mais-section h1{
+        font-size: 3rem;
+        font-weight: 800;
+    }
+    
+    .saber-mais-section p{
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+
+    /*Vagas po localização*/
+
+    .vagas-localização-section{
+        padding: 4rem 3.5rem;
+        gap: 2rem;
+    }
+    
+    .search-form{
+        flex-direction: column;
+        border: none;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .search-form .search-select{
+        border: 0.2rem solid var(--primary-color);
+        width: 100%;
+    }
+    .search-form button{
+        border-radius: 0.6rem;
+    }
+
+    .provincias-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 2rem;
+        max-width: 50%;
+    }
+
+
+
+
+}

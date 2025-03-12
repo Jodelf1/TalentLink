@@ -33,36 +33,15 @@
             <img src="./assets/img/logo.png" alt="" class="logo">
             <div class="flex row a-center gap-2">
                 <nav class="flex row gap-2 menu-desktop-links">
-                    <a href="/vagas">Vagas</a>
-                    <a href="/formacoes">Formações</a>
-                    <a href="/sobre">Sobre</a>
-                    <a href="/meucv">Meu CV</a>
+                    <a href="">Vagas</a>
+                    <a href="">Formações</a>
+                    <a href="">Sobre</a>
+                    <a href="">Meu CV</a>
                 </nav>
-
-                <?php if(isset($_SESSION['user'])){ #SE EXISTE UMA SESSÃO INICIADA ?>
-
-                <section class="user-card relative" id="user-card">
-                    <img src="/assets/img/profile-example.jpg" alt="" class="user-img">
-                    <section class="user-info flex col">
-                        <h1 class="user-name">Nome do candidato</h1>
-                        <p>Meu CV</p>
-                    </section>
-                    <nav id="user-options-container" class="user-options-container flex col">
-                        <a href="/cv" class="user-option">Meu CV</a>
-                        <a href="/config" class="user-option">Configurações</a>
-                        <a href="/logout" class="user-option">Sair</a>
-                    </nav>
-                </section>
-
-                    
-                <?php }else{ #SE NÃO EXISTE UMA SESSÃO INICIADA ?>
-
                 <div class="flex row a-center gap-2">
-                    <a href="/login" class="btn login">Entrar</a>
-                    <a href="/register" class="btn">Criar Conta</a>
+                    <a href="" class="btn login">Criar Conta</a>
+                    <a href="" class="btn">Entrar</a>
                 </div>
-
-                <?php } ?>
             </div>
         </section>
         <section class="hide-desktop menu-mobile flex row a-center">
@@ -79,7 +58,7 @@
                 <p>Seja você um <strong>recrutador em busca do candidato ideal</strong> ou um <strong>profissional pronto para dar o próximo passo na carreira</strong>, a TalentLink facilita essa conexão. Atualmente, temos [X] vagas de emprego abertas em diversas áreas, esperando por você.</p>
             </div>
             <div class="hero-search-form-container">
-                <form class="hero-search-form" action="/vagas/search">
+                <form class="hero-search-form">
                     <section class="search-input flex row">
                         <i class="fa-solid fa-search"></i>
                         <input type="text" name="search" id="search"
@@ -153,8 +132,7 @@
             <section class="flex col gap-1">
                 <h1 class="home-title">Veja vagas de emprego perto de ti!</h1>
                 <p>Pesquise aqui região que deseja verificar vagas de emprego!</p>
-                <form action="/vagas/search" class="search-form flex row">
-                    <input type="text" name="search" id="location" placeholder="" value="" class="off">
+                <form action="" class="search-form flex row">
                     <section class="search-select flex row">
                         <i class="fa-solid fa-location-dot"></i>
                         <input type="text" name="location" id="location" placeholder="Na Região...">
@@ -168,107 +146,102 @@
                 <p>Veja vagas de emprego nas 21 províncias de Angola Encontre um emprego que corresponda ao seu pedido.</p>
                 <section class="provincias-container">
     
-                    <a href="/vagas/search?search=&location=bengo" class="provincia-link">
+                    <a href="#bengo" class="provincia-link">
                         <h1>Bengo</h1>
                         <p>23 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=benguela" class="provincia-link">
+                    <a href="#benguela" class="provincia-link">
                         <h1>Benguela</h1>
                         <p>15 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=bie" class="provincia-link">
+                    <a href="#bie" class="provincia-link">
                         <h1>Bié</h1>
                         <p>12 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=cabinda" class="provincia-link">
+                    <a href="#cabinda" class="provincia-link">
                         <h1>Cabinda</h1>
                         <p>18 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=cuando" class="provincia-link">
-                        <h1>Cuando</h1>
-                        <p>10 vagas</p>
-                    </a>
-                    
-                    <a href="/vagas/search?search=&location=cubango" class="provincia-link">
-                        <h1>Cubango</h1>
+                    <a href="#cuando-cubango" class="provincia-link">
+                        <h1>Cuando Cubango</h1>
                         <p>10 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=cuanza-norte" class="provincia-link">
+                    <a href="#cuanza-norte" class="provincia-link">
                         <h1>Cuanza Norte</h1>
                         <p>20 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=cuanza-sul" class="provincia-link">
+                    <a href="#cuanza-sul" class="provincia-link">
                         <h1>Cuanza Sul</h1>
                         <p>25 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=cunene" class="provincia-link">
+                    <a href="#cunene" class="provincia-link">
                         <h1>Cunene</h1>
                         <p>14 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=huambo" class="provincia-link">
+                    <a href="#huambo" class="provincia-link">
                         <h1>Huambo</h1>
                         <p>30 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=huila" class="provincia-link">
+                    <a href="#huila" class="provincia-link">
                         <h1>Huíla</h1>
                         <p>22 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=icole-bengo" class="provincia-link">
+                    <a href="#icole-bengo" class="provincia-link">
                         <h1>Icole-Bengo</h1>
                         <p>8 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=lunda-norte" class="provincia-link">
+                    <a href="#lunda-norte" class="provincia-link">
                         <h1>Lunda Norte</h1>
                         <p>16 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=lunda-sul" class="provincia-link">
+                    <a href="#lunda-sul" class="provincia-link">
                         <h1>Lunda Sul</h1>
                         <p>13 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=luanda" class="provincia-link">
+                    <a href="#luanda" class="provincia-link">
                         <h1>Luanda</h1>
                         <p>50 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=malanje" class="provincia-link">
+                    <a href="#malanje" class="provincia-link">
                         <h1>Malanje</h1>
                         <p>19 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=moxico-oeste" class="provincia-link">
+                    <a href="#moxico-oeste" class="provincia-link">
                         <h1>Moxico-Oeste</h1>
                         <p>11 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=moxico-leste" class="provincia-link">
+                    <a href="#moxico-leste" class="provincia-link">
                         <h1>Moxico-Leste</h1>
                         <p>9 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=namibe" class="provincia-link">
+                    <a href="#namibe" class="provincia-link">
                         <h1>Namibe</h1>
                         <p>17 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=uige" class="provincia-link">
+                    <a href="#uige" class="provincia-link">
                         <h1>Uíge</h1>
                         <p>21 vagas</p>
                     </a>
                 
-                    <a href="/vagas/search?search=&location=#zaire" class="provincia-link">
+                    <a href="#zaire" class="provincia-link">
                         <h1>Zaire</h1>
                         <p>14 vagas</p>
                     </a>
@@ -306,5 +279,5 @@
             <p>Todos os direitos Reservados © 2025 TalentLink | Developed by <a href="https://marimbaz.com">Marimba'z</a></p>
         </section>
     </footer>
-    <script src="assets/js/user.js"></script>
+
 </body>

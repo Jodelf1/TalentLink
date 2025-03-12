@@ -411,7 +411,11 @@ footer h1 {
 }
 
 
-/* LOGIN */
+/* LOGIN E REGISTRO*/
+
+.logo-login{
+    width: 20rem;
+}
 
 .main-login{
     padding: 2rem;
@@ -565,8 +569,6 @@ footer h1 {
 
 /*FORMULARIO DE REGISTRO DE VAGA */
 
-
-
 .create-form{
     gap: 2rem;
 }
@@ -604,4 +606,10 @@ footer h1 {
     height: 30rem;
     object-fit: cover;
     border-radius: 0.6rem;
+}
+
+/* FORMAÇÕES */
+
+.formacoes-container{
+    padding: 2rem;
 }

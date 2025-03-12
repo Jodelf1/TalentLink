@@ -15,42 +15,37 @@ class Formacao
         $this->pdo = Connection::connect();
     }
 
-    // Criar perfil de formador
-    public function createFormador($formadorId, $nomeFormador, $bio, $especialidades, $localizacao, $contato)
+    // Método para criar uma formação
+    public function criarFormacao($data)
     {
-        if (empty($formadorId) || empty($nomeFormador) || empty($bio) || empty($especialidades)) {
-            return "Os campos obrigatórios não foram preenchidos.";
-        }
+       /* if (empty($formadorId) || empty($titulo) || empty($descricao) || empty($dataInicio) || empty($dataFim) || empty($localizacao)) {
+            echo "Todos os campos obrigatórios devem ser preenchidos.";
+            return false;
+        }*/
 
         try {
-            $sql = "INSERT INTO perfis_formadores (formador_id, nome_formador, bio, especialidades, localizacao, contato)
-                    VALUES (:formador_id, :nome_formador, :bio, :especialidades, :localizacao, :contato)";
+            $sql = "INSERT INTO webinars_formacoes (formador_id, titulo, descricao, data_inicio, data_fim, localizacao, link)
+                    VALUES (:formador_id, :titulo, :descricao, :data_inicio, :data_fim, :localizacao, :link)";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':formador_id', $formadorId);
-            $stmt->bindParam(':nome_formador', $nomeFormador);
-            $stmt->bindParam(':bio', $bio);
-            $stmt->bindParam(':especialidades', $especialidades);
-            $stmt->bindParam(':localizacao', $localizacao);
-            $stmt->bindParam(':contato', $contato);
 
-            return $stmt->execute();
+            return $stmt->execute($data);
+            
         } catch (PDOException $e) {
-            return "Erro ao criar o perfil: " . $e->getMessage();
+            echo "Erro ao criar a formação: " . $e->getMessage();
+            return false;
         }
     }
 
-    // Obter perfil de formador por ID
-    public function getPerfilFormador($formadorId)
+    // Método para listar formações
+    public function listarFormacoes()
     {
         try {
-            $sql = "SELECT * FROM perfis_formadores WHERE formador_id = :formador_id";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':formador_id', $formadorId);
-            $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            $sql = "SELECT * FROM webinars_formacoes ORDER BY data_inicio DESC";
+            $stmt = $this->pdo->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            return "Erro ao buscar o perfil: " . $e->getMessage();
+            echo "Erro ao listar formações: " . $e->getMessage();
+            return false;
         }
     }
 }
-

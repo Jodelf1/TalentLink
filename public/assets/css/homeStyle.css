@@ -1,0 +1,278 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-style: normal;
+    font-family: "Sen", serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    font-size: 60.3%;
+    height: 100%;
+}
+
+body {
+    background: var(--background-color);
+}
+
+/*Header*/
+
+header {
+    padding: 4rem;
+}
+
+.menu-desktop{
+    padding: 0 rem
+}
+
+.menu-desktop .logo{
+    width: 20rem;
+}
+
+.menu-desktop-links{
+    display: flex;
+    gap: 2rem;
+}
+
+.menu-desktop-links a{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.menu-desktop-links a:hover{
+    color: var(--third-color);
+    transition: 0.3s;
+}
+
+/*Hero*/
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    gap: 2rem;
+    padding: 8rem;
+}
+
+.hero-text{
+    width: 80%;
+}
+.hero-text h1{
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+}
+
+.hero-text p{
+    font-size: 1.8rem;
+    color: var(--third-color);
+}
+
+.hero-search-form{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    border: 0.15rem solid var(--primary-color);
+    border-radius: 0.6rem;
+    overflow: hidden;
+}
+.search-form{
+    width: 80%;
+    border-radius: 0.6rem;
+    border: 0.15rem solid var(--primary-color);
+    overflow: hidden;
+}
+.search-input, .search-select{
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    width: 60%;
+    padding: 0 2rem;
+    background: var(--white-color);
+    transition: 0.3s;
+    border: 0.15rem solid var(--primary-color);
+    gap: 1rem;
+    align-items:  center;
+}
+.search-input input, .search-select input{
+    border: none;
+    width: 100%;
+    padding: 2rem 0;
+    outline: none;
+}
+
+.search-select{
+    width: 40%;
+}
+
+.hero-search-form button, .search-form button{
+    color: #fff;
+    background: var(--primary-color);
+    border: none;
+    padding: 2rem 4rem;
+    cursor: pointer;
+}
+
+.hero-search-form button:hover , .search-form button:hover{
+    background: var(--sec-color);
+    transition: 0.3s;
+}
+/*Tipos de utilizadores*/
+
+.user-types-container{
+    gap: 4rem;
+    padding: 4rem 8rem;
+    background: var(--white-color);
+}
+
+.user-types-container h1{
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    width: 35%;
+}
+
+.user-type-card{
+    padding: 3rem;
+    background: var(--background-color);
+    border-radius: 0.6rem;
+}
+
+.user-type-card.cp-card{
+    background: #2525253e;
+}
+
+.user-type-card.f-card{
+    background: #dda25e84;
+}
+.user-type-card.f-card:hover{
+    background: #dda15e;
+}
+
+/**/
+
+.saber-mais-section{
+    background: linear-gradient(240deg,  #0396c700 , #0396c7 60% ), url("../img/sabermais-image.jpg");
+    background-position: left;
+    background-size: cover;
+    padding: 8rem;
+    color: #fff;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+.saber-mais-section .sobre-text{
+    width: 50%;
+}
+
+.saber-mais-section h1{
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+.saber-mais-section p{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.saber-mais-section a{
+    color: var(--primary-color);
+    background: #fff;
+    padding: 1rem 2rem;
+    border-radius: 0.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+
+/*Tipos de Vagas*/
+
+.tipos-de-vagas-container{
+    background: var(--white-color);
+    padding: 4rem 8rem;
+    gap: 2rem;
+}
+
+
+/* Vagas por provincia*/
+
+.vagas-localização-section{
+    padding: 8rem 10rem;
+    gap: 2rem;
+}
+
+.search-form .search-select{
+    width: 100%;
+}
+
+.home-title{
+    font-size: 2.5rem;
+}
+
+.provincias-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+    max-width: 80%;
+}
+.provincia-link {
+    text-decoration: none;
+    color: black;
+    padding: 2rem 1rem 2rem 0;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.provincia-link:hover h1{
+    text-decoration: underline;
+}
+.provincia-link h1{
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+.provincia-link p{
+    margin: 0;
+    color: #555;
+}
+
+
+/*Footer */
+
+footer{
+    padding: 0 8rem;
+    color: gray;
+}
+
+.footer-info-container{
+    padding: 4rem 0;
+    border-top: gray 0.1rem solid;
+}
+
+.footer-logo{
+    width: 18rem;
+}
+
+.div-title{
+    font-size: 1.8rem;
+}
+
+.footer-info{
+    width: 40%;
+}
+
+.footer-info a{
+    font-size: 1.3rem;
+    color: gray;
+}
+
+.footer-menu nav, .footer-contacts div{
+    gap: 1rem;
+}
+
+.creditos{
+    padding: 2rem;
+}
+
+

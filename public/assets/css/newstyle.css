@@ -27,7 +27,7 @@ body {
 }
 
 .sidebar {
-    width: 15%;
+    width: 20%;
     height: 100vh;
     padding: 3rem 0rem;
     gap: 1rem;
@@ -57,13 +57,9 @@ main {
 .mainContent::-webkit-scrollbar-thumb{
     background: var(--primary-color);
     border-radius: 0.6rem;
-    
-
 }
 
-
-
-/*Header */
+/*Header*/
 
 header{
     padding-top: 3rem;
@@ -117,22 +113,6 @@ header{
     width: 75% ;
 }
 
-.vaga-card{
-    background: var(--white-color);
-    color: var(--dark-color);
-    padding: 2rem;
-    border-radius: 1rem;
-    gap: 1.3rem;
-    position: relative;
-}
-
-.vaga-card .date-vaga{
-    position: absolute;
-    right: 2rem;
-    top: 2rem;
-    color: gray;
-}
-
 .company-data-container{
     gap: 1rem;
 }
@@ -153,103 +133,59 @@ header{
     color: gray;
 }
 
-.vaga-card .vaga-title{
-    font-size: 2.7rem;
-    color: var(--third-color);
-}
-.vaga-card .vaga-title:hover{
-    text-decoration: underline;
-}
+/*SIDE BAR*/
 
-.vaga-card .vaga-information{
-    padding-left: 3.7rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.vaga-card .vaga-details{
-    font-size: 1.2rem;
-    color: var(--dark-color);
-}
-
-.vaga-card .vaga-application-area{
-    gap: 1rem;
-}
-.btn{
-    padding: 1rem 2rem;
-    background: var(--primary-color);
-    color: #fff;
-    border-radius: 0.6rem;
-    transition: 0.3s;
-    font-size: 1.3rem;
-}
-.btn:hover{
-    background: var(--third-color);
-    transition: 0.3s;
-}
-
-/*Side Bar*/
-
-
-.user-card{
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 0.6rem;
+.logo{
     width: 100%;
-    color: var(--secondary-color);
-    transition: 0.3s;
-    cursor: pointer;
-}
-.user-card:hover{
-    background: var(--hover-color);
-    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
 }
 
-.user-img{
-    object-fit: cover;
-    border-radius: 50%;
-    width: 5rem;
-    height: 5rem;
+.logo img{
+    width: 20rem;
 }
 
-.user-card h1{
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-.user-card p{
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-.user-options-container{
+.acess-links{
+    padding: 2rem;
     background: var(--white-color);
-    padding: 1rem;
     border-radius: 1rem;
-    position: absolute;
-    top: 101%;
-    width: 100%;
-    left: 0;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-    visibility: hidden;
+    gap: 0.8rem;
 }
-.user-options-container.active{
-    visibility: visible;
-}
-
-.user-option{
-    font-size: 1.3rem;
-    color: var(--dark-color);
-    padding: 1rem 2rem;
+.acess-links p{
+    font-size: 1.2rem;
 }
 
 .sidebar-menu{
-    gap: 1rem;
     padding: 2rem 0;
     border-top: var(--third-color) solid 0.1rem;
     border-bottom: var(--third-color) solid 0.1rem;
 }
+.sidebar-menu ul{
+    gap: 0.2rem;
+}
+
+.social-media-icons{
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+.social-media-icon{
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.sidebar-footer{
+    color: gray;
+}
+
+.more-links{
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+
 .information-container{
     width: 25%;
 }
@@ -257,4 +193,15 @@ header{
     min-height: 40rem;
     background: var(--white-color);
     border-radius: 1rem;
+}
+
+/**/
+
+.formacao-card .formacao-img{
+    border-radius: 0.6rem;
+    width: 25rem;
+}
+
+.formacao-description{
+
 }

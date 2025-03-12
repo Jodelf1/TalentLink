@@ -112,14 +112,14 @@ $router = [
         "/admin/create/admin" => fn() => load("adminController", "createAdmin"),
 
         /* Rotas dos Formadores */
-        "/formador" => fn() => load("formacaoController", "index"), 
-        "/formador/detalhes" => fn() => load("formacaoController", "detalhesFormacao"), 
-        "/formador/cursos" => fn() => load("formacaoController", "index"),
-        "/formador/cursos/{slug}" => fn($slug) => load("formacaoController", "viewCursoDetails", $slug),
+        "/f" => fn() => load("formacaoController", "index"), 
+        "/f/perfil" => fn() => load("formadorController", "detalhesFormacao"), 
+        "/f/formacoes" => fn() => load("formadorController", "index"),
+        "/f/formacao/{slug}" => fn($slug) => load("formadorController", "viewCursoDetails", $slug),
 
          /* Rotas dos Formacao */
-        "/formacao/criar" => fn() => load("CriarFormacaoController", "criarTela"),
-        "/formacoes" => fn() => load("CriarFormacaoController", "listarFormacoes"),
+        "/f/formacao/criar" => fn() => load("CriarFormacaoController", "criarTela"),
+        "/f/formacoes" => fn() => load("CriarFormacaoController", "listarFormacoes"),
 
 
         /* Rotas de candidaturas */
